@@ -1,0 +1,40 @@
+# Created by https://www.toptal.com/developers/gitignore/api/mdbook,visualstudiocode,obsidian,oxygenxmleditor
+# Edit at https://www.toptal.com/developers/gitignore?templates=mdbook,visualstudiocode,obsidian,oxygenxmleditor
+
+### MdBook ###
+book
+
+
+### Obsidian ###
+# config dir
+.obsidian/
+
+### oXygenXMLEditor ###
+# oXygen XML Editor by SyncRO Soft SRL
+# https://www.oxygenxml.com
+/**/out/
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Draw.IO files
+*.bkp
+*.dtmp
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/mdbook,visualstudiocode,obsidian,oxygenxmleditor
