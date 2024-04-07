@@ -74,48 +74,48 @@ In this section, we'll walk through the process of creating an instance from the
 #### Log in to the Google Cloud Console
 
 Open your web browser and navigate to the [Google Cloud Console](https://console.cloud.google.com/)). Log in with your Google Cloud account credentials and click to Console.
-![[1-google-cloud-login.png]]
+![[./images/./images/1-google-cloud-login.png]]
 #### Navigate to the Compute Engine section
 
 From the Cloud Console dashboard, navigate to the Compute Engine section and click on "Create a VM". You can find it under the "Products" section below or in under the "Computing" heading in the navigation menu on the left-hand side.
 
 After you clicked "Create a VM" you will be directed to start the process of creating a new virtual machine instance you will going to use.
 
-![[2-create-a-vm.png]]
+![[./images/2-create-a-vm.png]]
 
 #### Confirm your credential
 
 At this point Google Cloud will ask you to set up your account and confirm your credentials if you haven't done that already. Please do that and after you confirm your identity and get your account set up, you will be able to create a new project for instance.
 
-![[3-confirm-credentials.png]]
+![[./images/3-confirm-credentials.png]]
 
 #### Create a project
 
 This step is necessary to group your different projects under appropriate groups. 
 
-![[4-create-a-project.png]]
+![[./images/4-create-a-project.png]]
 
 Click on the button "Create Project" and you will be redirected into the page where you will be invited to create a new project in Compute Engine.
 
-![[5-creating-a-project.png]]
+![[./images/5-creating-a-project.png]]
 
 You might be redirected into another page, asking you to enable Compute Engine API, if it is not enabled before. If that is true, you need to click "Enable" to allow Compute Engine enables access to Cloud API.
 
-![[6-enable-CE-api.png]]
+![[./images/6-enable-CE-api.png]]
 
 When Compute Engine API will be enabled you will be redirected to the page where you can click "Create instance" button and system will ask you to fill out necessary details.
 
-![[7-create-instance.png]]
+![[./images/7-create-instance.png]]
 
 #### Configure instance details
 
 The "Create a VM" dialog will prompt you to configure various settings for your new instance.  Observe them carefully and fill out in a way they highlighted. It would be enough to play with Kubernetes instance - microk8s.
 
-![[8-instance-details-1.png]]
+![[./images/8-instance-details-1.png]]
 
 Scrolling down, don't forget to click on the `CHANGE` button to change the size of the boot disk. By default it is set to 10Gb only which is definitely not enough for Kubernetes instance. I prefer to set it as a minimum to 100Gb.
 
-![[8-instance-details-2.png]]
+![[./images/8-instance-details-2.png]]
 
 Rest parameters allow your instance to get access to the Cloud API and incoming HTTP(-s) traffic - which may be necessary on next steps, when you deploy your applications and would like them to be reachable.
 #### Click "Create" to provision the instance
@@ -140,10 +140,10 @@ To use the browser-based SSH client, follow these steps:
 - In the Compute Engine section of the Cloud Console, locate your instance and click on its name
 
 - On the instance details page, click the "SSH" button at the top
-![[9-access-ssh.png]]
+![[./images/9-access-ssh.png]]
 
 - A new window or tab will open, presenting you with a web-based terminal connected to your instance via SSH.
-![[10-browser-ssh-window.png]]
+![[./images/10-browser-ssh-window.png]]
 While the browser-based SSH client is handy for quick access and basic tasks, it may have limitations in terms of functionality and customization compared to other methods.
 
 #### Google Cloud SDK
@@ -167,13 +167,13 @@ If you prefer using a dedicated SSH client application, you can also connect to 
 To connect using a third-party client, you'll need to obtain the external IP address of your instance and configure the appropriate SSH keys or credentials. You can find the external IP address in the instance details page of the Cloud Console.
 
 Next step - you need to add your SSH public key to your VM instance. To do so, go to your Compute Engine and click on "VM Instances", then choose your VM, click on it and then choose "EDIT" button.
-![[11-edit-vm-add-ssh-key.png]]
+![[./images/11-edit-vm-add-ssh-key.png]]
 
 Scroll down to the section, called "Security and access" and find there "+ADD ITEM" button. You need to click on it to add your own public key which will be used for your authentication procedure.
 
 Usually your own keys are stored in `.ssh/` folder. If they're not there you need to generate one with following command - `ssh-keygen -t ed25519 -C "google-compute-engine"`, which will create you a new key in ED25519 format and store it in `.ssh/` folder. Copy the context of the `.ssh/id_ed25519.pub` file and paste it as a the new SSH key.
 
-![[12-adding-new-key.png]]
+![[./images/12-adding-new-key.png]]
 
 Adding a key you also need to specify your email, after the key itself, which you use to access the GCE account. So final string you should put there will look like this
 ```
