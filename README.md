@@ -12,7 +12,7 @@ Published on [Medium](https://medium.com/p/dde4307a8e9b) on March 4, 2024.
 ### Configuring SSH to Access Remote Server
 The article guides configuring SSH to securely access remote servers like Google Cloud VMs. It covers generating SSH key pairs, adding the public key to the server, disabling password authentication, and customizing the SSH client configuration file for simplified connections and proxying through bastion hosts. Following these steps enables secure encrypted remote access.
 
-Published on [DEV.to](https://dev.to/eugene-zimin/configuring-ssh-to-access-remote-server-2ljk) on April 7, 2024.
+Published on [DEV.to](https://dev.to/eugene-zimin/configuring-ssh-to-access-remote-server-2ljk) [Medium](https://medium.com/p/f12f94a8bec7) and [Substack](https://eugenezimin.substack.com/publish/posts/detail/143371896/share-center) on April 7, 2024.
 ## Contributing 
 Contributions to this repository are welcome! If you would like to add a new article or improve an existing one, please follow these steps: 
 1. Fork the repository. 
