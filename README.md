@@ -13,6 +13,11 @@ Published on [Medium](https://medium.com/p/dde4307a8e9b) on March 4, 2024.
 The article guides configuring SSH to securely access remote servers like Google Cloud VMs. It covers generating SSH key pairs, adding the public key to the server, disabling password authentication, and customizing the SSH client configuration file for simplified connections and proxying through bastion hosts. Following these steps enables secure encrypted remote access.
 
 Published on [DEV.to](https://dev.to/eugene-zimin/configuring-ssh-to-access-remote-server-2ljk) [Medium](https://medium.com/p/f12f94a8bec7) and [Substack](https://eugenezimin.substack.com/publish/posts/detail/143371896/share-center) on April 7, 2024.
+
+### Database per Service as a Design Pattern
+The article explores the Database per Service pattern, where microservices own individual databases, contrasting it with monolithic shared data stores. It highlights benefits like development autonomy, technology flexibility, and easier maintenance, enabled by API-based data encapsulation. While acknowledging challenges, it presents the pattern as crucial for system adaptability, promising future discussion on drawbacks.
+
+Published on [Medium](https://medium.com/p/1d48cccd0b19) and [DEV.to](https://dev.to/eugene-zimin/database-per-service-as-a-design-pattern-44gi) on June 13, 2024.
 ## Contributing 
 Contributions to this repository are welcome! If you would like to add a new article or improve an existing one, please follow these steps: 
 1. Fork the repository. 
