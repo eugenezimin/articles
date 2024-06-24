@@ -18,6 +18,11 @@ Published on [DEV.to](https://dev.to/eugene-zimin/configuring-ssh-to-access-remo
 The article explores the Database per Service pattern, where microservices own individual databases, contrasting it with monolithic shared data stores. It highlights benefits like development autonomy, technology flexibility, and easier maintenance, enabled by API-based data encapsulation. While acknowledging challenges, it presents the pattern as crucial for system adaptability, promising future discussion on drawbacks.
 
 Published on [Medium](https://medium.com/p/1d48cccd0b19) and [DEV.to](https://dev.to/eugene-zimin/database-per-service-as-a-design-pattern-44gi) on June 13, 2024.
+
+### Using Domain-Driven Design to to Create Microservice App
+This article explores the development of a Twitter-like platform using Domain-Driven Design and microservices. It details the design of `UserManagementService` and `MessagingService`, highlighting key DDD concepts and architectural decisions. The discussion covers inter-service communication, data management, and scalability strategies, offering insights into building complex, distributed systems that can evolve with changing requirements.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/leveraging-domain-driven-design-for-application-design-58e2) on June 23, 2024.
 ## Contributing 
 Contributions to this repository are welcome! If you would like to add a new article or improve an existing one, please follow these steps: 
 1. Fork the repository. 
