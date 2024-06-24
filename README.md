@@ -22,7 +22,7 @@ Published on [Medium](https://medium.com/p/1d48cccd0b19) and [DEV.to](https://de
 ### Using Domain-Driven Design to to Create Microservice App
 This article explores the development of a Twitter-like platform using Domain-Driven Design and microservices. It details the design of `UserManagementService` and `MessagingService`, highlighting key DDD concepts and architectural decisions. The discussion covers inter-service communication, data management, and scalability strategies, offering insights into building complex, distributed systems that can evolve with changing requirements.
 
-Published on [DEV.to](https://dev.to/eugene-zimin/leveraging-domain-driven-design-for-application-design-58e2) on June 23, 2024.
+Published on [DEV.to](https://dev.to/eugene-zimin/leveraging-domain-driven-design-for-application-design-58e2) and [Medium](https://medium.com/@eugene-zimin/using-domain-driven-design-to-to-create-microservice-app-e234154a3fd1) on June 23, 2024.
 ## Contributing 
 Contributions to this repository are welcome! If you would like to add a new article or improve an existing one, please follow these steps: 
 1. Fork the repository. 
