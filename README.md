@@ -23,6 +23,11 @@ Published on [Medium](https://medium.com/p/1d48cccd0b19) and [DEV.to](https://de
 This article explores the development of a Twitter-like platform using Domain-Driven Design and microservices. It details the design of `UserManagementService` and `MessagingService`, highlighting key DDD concepts and architectural decisions. The discussion covers inter-service communication, data management, and scalability strategies, offering insights into building complex, distributed systems that can evolve with changing requirements.
 
 Published on [DEV.to](https://dev.to/eugene-zimin/leveraging-domain-driven-design-for-application-design-58e2) and [Medium](https://medium.com/@eugene-zimin/using-domain-driven-design-to-to-create-microservice-app-e234154a3fd1) on June 23, 2024.
+
+### JWT at a Glance
+This article provides an overview of JSON Web Tokens (JWT) and their role in authentication and authorization. It compares JWT-based authentication to traditional session-based methods, highlighting JWT's stateless nature and scalability advantages. The piece explains JWT structure, including header, payload, and signature components, and discusses the importance of token refreshing for security. It also touches on the integration of JWT with OAuth 2.0 and OpenID Connect (OIDC) for enhanced application security. The article aims to clarify common misconceptions about JWT and its relationship to other authentication protocols.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/jwt-at-a-glance-4f1d) and [Medium](https://medium.com/@eugene-zimin/jwt-at-a-glance-0357387417d4) on August 18, 2024.
 ## Contributing 
 Contributions to this repository are welcome! If you would like to add a new article or improve an existing one, please follow these steps: 
 1. Fork the repository. 
