@@ -1,0 +1,9 @@
+# API Authentication — Part II. API Keys
+
+The second article in the API authentication series picks up where Basic Auth left off and introduces a mechanism better suited to machine-to-machine communication: API Keys. The article begins with historical context, explaining how the mid-2000s explosion of public APIs — Google Maps, Twitter, Amazon Web Services — created demand for a single, long-lived token approach that could be issued programmatically, tracked per consumer, and revoked independently of any user account. This shift reflected a broader transition away from human-centric username-and-password credentials toward automated, application-level access.
+
+At a technical level, the article contrasts the two-step lookup of Basic Auth (find the user, then verify the password) with the consolidated single-token lookup of an API key. It walks through a realistic Python implementation of an `APIKeyAuthenticator` class that generates cryptographically secure keys with an embedded structure — a service-specific prefix, a timestamp, and a random component — so that the key's origin and approximate age can be read from the key itself without hitting the database. The `validate_request` method demonstrates how authentication and permission checking collapse into one database call, and how usage timestamps get updated transparently on each request.
+
+The article also covers the operational advantages that make API Keys the default choice for many public APIs: straightforward rate limiting, usage analytics per key, and granular permission scoping. It is candid about the mechanism's remaining weakness — an API key is essentially a long password, and the server still must consult a database on every request to look up its associated permissions and status. That database roundtrip is precisely the problem that Part III (JWT) is designed to solve.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/api-authentication-part-ii-api-keys-2l51).
