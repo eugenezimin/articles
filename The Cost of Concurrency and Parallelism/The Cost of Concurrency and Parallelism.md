@@ -4,11 +4,11 @@ Many of the developers and engineers, especially younger generation used to use 
 
 If we take a look around, most of the benchmarks use prepared workflows which usually are well enough to be parallelized, meaning that data is isolated, algorithms are never changed and there is no direct impact on datasets in different threads. This is what is called ideal conditions - we all know them and definitely use threading as we can see there real impact on our efficiency and it is positive. Under such circumstances the problem is almost invisible and negligible. 
 
-![[long-threads.png]]
+![long-threads](long-threads.png)
 
 However the data is not always prepared and in many variations it became so small that spawning the thread, queuing a job, waking a worker, makes application working with threading slower enough to be considered and surprisingly may lead to worse performance with enabled concurrency than without it.
 
-![[short-threads.png]]
+![short-threads](short-threads.png)
 
 I prepared few test cases to find out all of this machinery and measure its impact.
 
@@ -28,7 +28,7 @@ Each measurement fires a hundred of these tasks through one concurrency primitiv
 
 A mean value would be definitely wrong here. Dispatch cost isn't a single value, it's a distribution with a tail, and the tail is actually where I can catch some interesting failures. There might be a run that hit a scheduler hiccup, or another one which caught a collector mid-sweep, or the one that was thrown onto a slow core. Every variant is reported as three points on its distribution: **p50** (the median - the typical run), **p99**(the bad-but-not-rare run), and **p999** (the worst run in roughly a thousand). With a thousand samples, p999 gets landing on rank ~998 - but it's a genuine one-in-a-thousand observation, not a synonym for "the slowest sample." When p999 pulls far away from p50 then something intermittent fell into the measurement and naming that something - whether it was a GC pause, or a clock transition, or a cold pool - is most of the work of the later articles.
 
-![[percentiles.png]]
+![percentiles](percentiles.png)
 
 One methodological note that matters. A loop whose result is never used, is a loop which a good optimizer is entitled to delete, and with a flag `--release` Rust will absolutely do that as part of its optimization, as leaving you a workload for just an empty fan-out is a glorious nonsense. Thus each of the variant here wraps each task's result into a single global accumulator (simple XOR of the raw float bits) at the very end. At the same time that accumulator does a second job as it keeps every `print` out of the timed region to minimize side effects on IO operations to console - I don't want to make a benchmark of `stdout`.
 

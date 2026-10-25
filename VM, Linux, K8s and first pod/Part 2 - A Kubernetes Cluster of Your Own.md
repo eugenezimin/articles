@@ -34,7 +34,7 @@ microk8s status --wait-ready
 
 Each option in the first command has a purpose. The `--classic` flag gives the snap classic confinement, which means full access to the system rather than the sandbox most snaps run in, and Kubernetes needs that access because it manages networking, storage, and processes for everything that runs on the node. The `--channel=1.36/stable` option pins the installation to the stable releases of Kubernetes 1.36, so that automatic snap updates bring security fixes within that version but never move the cluster to a new version in the middle of the term. Figure 1 shows the installation completing.
 
-![Installing MicroK8s 1.36 from the snap store](23_microk8s_install.png)
+![Installing MicroK8s 1.36 from the snap store](images/23_microk8s_install.png)
 
 *Figure 1. MicroK8s 1.36 installed from the snap store.*
 
@@ -42,7 +42,7 @@ The `usermod` command adds your user to the `microk8s` group, the group whose me
 
 The cure is to log out of Ubuntu completely and log in again. Older guides suggest the command `newgrp microk8s` as a shortcut, but it is no longer available on Ubuntu 26.04 Desktop, so the full log-out is the reliable way. In the new session, `microk8s status --wait-ready` returns once the cluster is up and prints its state, as Figure 2 shows.
 
-![MicroK8s status and available add-ons](24_microk8s_status.png)
+![MicroK8s status and available add-ons](images/24_microk8s_status.png)
 
 *Figure 2. The output of microk8s status, reporting that MicroK8s is running on a single node, with the dns, ha-cluster, helm, and helm3 add-ons enabled and a long list of others, including registry, available but disabled.*
 
@@ -62,7 +62,7 @@ kubectl get all --all-namespaces
 
 The first line appends the alias to `~/.bash_aliases`, a file that the Ubuntu shell reads each time a terminal opens, so the alias survives restarts. The second loads it into the terminal that is already open, and the third lists the main objects in every namespace of the cluster, producing the output in Figure 3.
 
-![System components of a fresh cluster](25_kubectl_get_all.png)
+![System components of a fresh cluster](images/25_kubectl_get_all.png)
 
 *Figure 3. The objects in a freshly installed cluster, where the kube-system namespace holds the Calico networking components and CoreDNS, each running as a pod, and the default namespace holds only the kubernetes service that leads to the API server.*
 
@@ -133,7 +133,7 @@ microk8s enable registry      # image registry at localhost:32000
 
 Enabling the add-on asks for your password, because it changes system settings, and then reports what it creates, as Figure 4 shows. The registry needs somewhere to keep its images, so MicroK8s first enables the `hostpath-storage` add-on, which stores data in a directory on the node, and warns that this kind of storage is not suitable for production, a warning that is true and harmless for a lab. It then creates a namespace called `container-registry`, a 20 GiB storage claim, and the registry itself, reachable on port 32000.
 
-![Enabling the registry add-on](26_registry_enable.png)
+![Enabling the registry add-on](images/26_registry_enable.png)
 
 *Figure 4. Enabling the registry add-on, which asks for the sudo password, enables hostpath storage, and creates a 20 GiB registry in the container-registry namespace.*
 
@@ -163,11 +163,11 @@ kubectl -n kube-system port-forward svc/headlamp 8888:80
 
 A backslash at the end of a line tells the shell that the command continues on the next line, which is how the long URL and the long `clusterrolebinding` command fit on the page. The option `-n kube-system` places the service account in the same namespace as Headlamp, and the cluster role binding attaches the predefined role `cluster-admin`, which permits every action on every object, to that account. The `create token` command prints a long string, the token, which is valid only for a limited time, so when Headlamp later refuses it you run the command again for a new one. The last command keeps running and occupies its terminal for as long as the forward is needed, carrying connections from port 8888 of the VM to port 80 of the Headlamp Service inside the cluster.
 
-![Deploying Headlamp and creating a service account](43_headlamp_install.png)
+![Deploying Headlamp and creating a service account](images/43_headlamp_install.png)
 
 *Figure 5. Deploying Headlamp and creating its service account and cluster role binding, captured later in the series, which is why the prompt shows the project folder from Part 3 and the IDE appears in the dock, although the commands work the same from any folder.*
 
-![Creating the token and forwarding the port](44_headlamp_token.png)
+![Creating the token and forwarding the port](images/44_headlamp_token.png)
 
 *Figure 6. A variant of the token and port-forward commands that saves the token to a file and runs the port forward in the background, so that the same terminal stays free for further commands.*
 
@@ -175,7 +175,7 @@ Figure 6 shows a variation that some students find more convenient. It writes th
 
 With the port forward running, open Firefox in the VM, go to `http://localhost:8888`, and paste the token into the login page shown in Figure 7.
 
-![Logging in to Headlamp with a service-account token](45_headlamp_login.png)
+![Logging in to Headlamp with a service-account token](images/45_headlamp_login.png)
 
 *Figure 7. The Headlamp login page, which accepts the service-account token printed by kubectl create token.*
 

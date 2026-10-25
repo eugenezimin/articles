@@ -10,7 +10,7 @@ Most of the load tests I have run over the years were not grand capacity-plannin
 
 That's how Pace Maker, a small native macOS app written in Swift and SwiftUI, was appeared.
 
-![Pace Maker running a load test, with the live chart in the main area and the settings inspector on the right](Publications/Articles/Building%20Pace%20Maker%20or%20how%20I%20did%20load%20testing/images/main_window.png)
+![Pace Maker running a load test, with the live chart in the main area and the settings inspector on the right](images/main_window.png)
 
 ## Why?
 
@@ -22,7 +22,7 @@ The application is simple yet powerful - its live chart owns the main area of th
 
 The most important architectural idea in the app is that the rate at which requests are released and the number of requests allowed to be in flight are two different concerns, and conflating them is the reason so many simple load generators quietly misreport what they measured. If a tool sends the next request only after a previous one returns, a slow server automatically slows the tool down, and the chart ends up showing whatever pace the server could tolerate instead of the pace you asked for, which hides precisely the degradation you were trying to observe.
 
-![The request pipeline, from the rate pacer through the backlog and the adaptive connection gate to the worker pool, with outcomes flowing back through counters and the sampler](pipeline.png)
+![The request pipeline, from the rate pacer through the backlog and the adaptive connection gate to the worker pool, with outcomes flowing back through counters and the sampler](images/pipeline.png)
 
 Pace Maker therefore releases requests on a schedule derived from the target rate alone, and those requests enter a bounded backlog that is served by a fixed pool of workers, so nothing is created per request thus memory stays flat regardless of how long a test runs or how high the rate goes. At the same time between the backlog and the workers sits an adaptive connection gate, which decides how many requests may be in flight at any moment by reasoning roughly along the lines of Little's law, since the concurrency needed to sustain a rate is approximately that rate multiplied by the current latency, and which backs off when errors climb while throughput stalls, because that combination usually signals a saturated server rather than one that merely needs more connections. When the backlog fills up, the excess is shed and counted instead of being buffered without limit, and this choice is what keeps the backpressure honest, because the user sees the achieved rate fall below the target exactly when the endpoint can no longer keep up, which is the very signal a load test exists to produce.
 
@@ -34,17 +34,17 @@ A chart is only as useful as the arithmetic behind it, and several of the more i
 
 Read endpoints are only half of most APIs, so the app sends every common HTTP method, from GET and HEAD through POST, PUT, PATCH, and DELETE to OPTIONS, and the methods that carry a body get a dedicated Load tab in which the body is written, typed as JSON, form data, plain text, or XML, and highlighted as you type.
 
-![The Load tab with a JSON request body and its live size and validity check](load.png)
+![The Load tab with a JSON request body and its live size and validity check](images/load.png)
 
 Building that editor surfaced a small lesson that is easy to miss, because the standard text editor on macOS follows the system setting for smart quotes and silently turns straight quotation marks into typographic ones, which produces JSON that looks correct on screen and fails on the server, so the body editor disables every automatic substitution and shows a live check of the body size and of whether the JSON is valid. The Texts tab then closes the loop by showing the request exactly as it is sent, together with the most recent distinct responses, which makes it easy to confirm that the server answered with the expected status and payload before trusting anything the chart says.
 
-![The Texts tab showing the request as sent and the most recent responses](Publications/Articles/Building%20Pace%20Maker%20or%20how%20I%20did%20load%20testing/images/texts.png)
+![The Texts tab showing the request as sent and the most recent responses](images/texts.png)
 
 ## Architecture
 
 Underneath the interface the structure is deliberately plain, with SwiftUI views observing a single session model, the model talking to an engine facade that owns the lifecycle of a run, and the facade delegating the actual traffic to a transport adapter, so that the views never know how requests are sent and the adapters never know how anything is drawn.
 
-![The layers of the app, from the SwiftUI interface through the observable session model and the engine facade down to the transport adapters](architecture.png)
+![The layers of the app, from the SwiftUI interface through the observable session model and the engine facade down to the transport adapters](images/architecture.png)
 
 Because the model is observable at the level of individual properties, a tick from the engine redraws only the views that display tick data, and editing a setting no longer redraws the chart, which mattered more than expected once tests ran long enough to accumulate thousands of points. The adapter boundary is also where the roadmap lives, since HTTP is the only real transport today while gRPC, WebSocket, and raw TCP are planned as further adapters behind the same contract, and keeping the pure parts of the system, such as the pacing arithmetic, the chart windowing, and the response bookkeeping, free of interface code is what allows most of the behavior to be covered by fast unit tests that run on every pull request.
 

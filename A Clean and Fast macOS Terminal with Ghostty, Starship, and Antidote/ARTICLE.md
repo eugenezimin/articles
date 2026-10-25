@@ -12,7 +12,7 @@ If we think of the setup as a car, **zsh** is the engine. **antidote** is the pa
 
 Each of these can be swapped out on its own, which is the main reason I like this combination over an all-in-one framework.
 
-![Terminal greeting and prompt in Ghostty](greeting.png)
+![Terminal greeting and prompt in Ghostty](screenshots/greeting.png)
 
 *Figure 1: The end result in a new Ghostty tab. A one-table system summary, followed by a two-line starship prompt.*
 
@@ -70,7 +70,7 @@ There's one catch I ran into myself. After the switch, the old `~/.zsh_history` 
 
 And if you'd like to go further, many other tools can be convinced to move out, too. Rust, for example, reads `CARGO_HOME` and `RUSTUP_HOME`, and npm reads `NPM_CONFIG_CACHE`. The trick is to set these in `$ZDOTDIR/.zshenv` *before* installing the tool. Otherwise, you'll need to move the existing folders yourself.
 
-![A clean home folder](home-clean.png)
+![A clean home folder](screenshots/home-clean.png)
 
 *Figure 2: The home folder before (Oh My Zsh and Powerlevel10k, everything in `~`) and after the `ZDOTDIR` switch, where a single `.zshenv` is left. The listings are demo values.*
 
@@ -96,7 +96,7 @@ Day to day, I hardly think about antidote at all. When I add a line to the list,
 
 Finally, starship draws a two-line prompt modelled on Powerlevel10k's "lean" style. Line one shows the path and git state. Line two holds the `❯` input marker, with status and project information on the right.
 
-![Prompt in different folders and git states](prompt-gallery.png)
+![Prompt in different folders and git states](screenshots/prompt-gallery.png)
 
 *Figure 3: The prompt in different repos: local changes, a deep subfolder, a detached tag, a rebase in progress, and a read-only folder.*
 

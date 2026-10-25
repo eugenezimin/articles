@@ -8,7 +8,7 @@ This is Part 3 of 3. [Part 1](Part%201%20-%20A%20Computer%20Inside%20Your%20Comp
 
 At the end of Part 2, the cluster in our VM could run any image that somebody had already built and published, as it did with the `nginx` web server. The step that remains is the one every enterprise developer takes many times a day, which is turning code they have just written into something the cluster can run, and that step is less a single leap than a chain of small transformations. Source code becomes a JAR file, the JAR becomes a container image, the image is pushed to a registry, the cluster pulls it to start pods, and a Service routes requests to those pods. Figure 1 draws the chain.
 
-![From source code to a Kubernetes Service](M08-Fig4-Code-To-Pod.png)
+![From source code to a Kubernetes Service](images/M08-Fig4-Code-To-Pod.png)
 
 *Figure 1. The path from source code to a running Service, in which Maven turns the code into a JAR, Docker turns the JAR into an image and pushes it to the registry, and Kubernetes starts two pods from the image behind a NodePort Service, with a check available after each link.*
 
@@ -27,7 +27,7 @@ java -version && javac -version && mvn -v
 
 The `-y` option answers yes to the installer's confirmation question in advance. If every command prints a version, as in Figure 2, the Java toolchain is ready. The screenshot pipes the Maven output through `head -1` to keep it to a single line, and your own output of `mvn -v` will be a few lines longer.
 
-![OpenJDK 25 and Maven installed](27_java_version.png)
+![OpenJDK 25 and Maven installed](images/27_java_version.png)
 
 *Figure 2. The version check after installation, in which java and javac report OpenJDK 25.0.4.1 and mvn reports Apache Maven 3.9.12.*
 
@@ -43,11 +43,11 @@ docker run --rm hello-world
 
 As with the `microk8s` group in Part 2, group membership takes effect only in a new login session, so log out and back in before running the last command. If you forget, the command fails with a message containing "permission denied" and `docker.sock`, which means only that the current session does not yet belong to the group. In the new session, the `hello-world` image downloads, runs, prints its greeting, and is removed again because of the `--rm` option, as Figures 3 and 4 show.
 
-![Installing Docker Engine](28_docker_install.png)
+![Installing Docker Engine](images/28_docker_install.png)
 
 *Figure 3. Installing the Docker Engine and BuildKit from the Ubuntu repositories.*
 
-![Docker works](29_docker_hello.png)
+![Docker works](images/29_docker_hello.png)
 
 *Figure 4. The hello-world container confirming that Docker can download and run images.*
 
@@ -63,7 +63,7 @@ Any IDE you are comfortable with will do for this course, whether IntelliJ IDEA,
 sudo snap install intellij-idea --classic
 ```
 
-![Installing IntelliJ IDEA from the snap store](31_idea_install.png)
+![Installing IntelliJ IDEA from the snap store](images/31_idea_install.png)
 
 *Figure 5. Installing IntelliJ IDEA from the snap store.*
 
@@ -71,7 +71,7 @@ sudo snap install intellij-idea --classic
 
 A Spring Boot project needs a build file that lists the right libraries in compatible versions, a main class, a configuration file, and a Maven wrapper, and writing all of that by hand is both tedious and error-prone. Spring Initializr, a web service at [start.spring.io](https://start.spring.io/), generates it for us. Open it in Firefox inside the VM and make the choices shown in Figure 6, which means Maven as the build tool, Java as the language, Spring Boot 4.1.x, the group `com.cst8277` and the artifact `demo`, Jar packaging, Java 25, and two dependencies, Spring Web for writing REST controllers and Spring Boot Actuator for the health endpoints that Kubernetes will use later.
 
-![Generating the project with Spring Initializr](30_spring_initializr.png)
+![Generating the project with Spring Initializr](images/30_spring_initializr.png)
 
 *Figure 6. Spring Initializr configured for a Maven project with Spring Boot 4.1, Java 25, the group com.cst8277, the artifact demo, and the Spring Web and Spring Boot Actuator dependencies.*
 
@@ -89,11 +89,11 @@ On its first start, IntelliJ IDEA asks you to accept its user agreement and to c
 
 The IDE does not always notice the JDK installed in section 2.1 by itself, in which case the editor shows the warning *Project JDK is not defined*, as in Figure 7. Click *Setup SDK* and select the detected Java 25 installation, as in Figure 8, and the warning disappears.
 
-![IntelliJ IDEA asks for the project JDK](32_idea_jdk_missing.png)
+![IntelliJ IDEA asks for the project JDK](images/32_idea_jdk_missing.png)
 
 *Figure 7. The editor warning that no project JDK is defined, with the Setup SDK link that resolves it.*
 
-![Selecting the detected OpenJDK 25](33_idea_setup_sdk.png)
+![Selecting the detected OpenJDK 25](images/33_idea_setup_sdk.png)
 
 *Figure 8. Selecting the OpenJDK 25 installation that IntelliJ IDEA detected on the VM.*
 
@@ -156,19 +156,19 @@ management.endpoint.health.probes.enabled=true
 
 Figure 9 shows the finished project in IntelliJ IDEA, with the two new packages beside the generated `DemoApplication` class. The figure also shows a `Dockerfile` and a file named `demo-app.yaml` in the project root, which we write in sections 5 and 6.
 
-![The project structure in IntelliJ IDEA](34_idea_project.png)
+![The project structure in IntelliJ IDEA](images/34_idea_project.png)
 
 *Figure 9. The project in IntelliJ IDEA, with the controllers and dto packages under com.cst8277.demo and GreetingController open in the editor.*
 
 Run the application by clicking the green Run button next to `DemoApplication`. The Run panel at the bottom of the window shows Spring Boot's log, in which the application reports that its embedded web server is listening on port 8080, and, for Spring Boot projects, tabs that list the application's beans, its health, its request mappings, and its environment, as Figure 10 shows.
 
-![Running the application in the IDE](35_idea_run.png)
+![Running the application in the IDE](images/35_idea_run.png)
 
 *Figure 10. The application running in the IDE, with the Spring Boot log in the Console tab and the Beans, Health, Mappings, and Environment tabs beside it in the Run panel.*
 
 Now open `http://localhost:8080/?name=CST8277` in Firefox. The browser displays the JSON in Figure 11, whose `content` is "Hello, CST8277!" and whose `id` is 1. Reload the page, and the `id` grows by one each time, because the same controller object, and therefore the same counter, serves every request. Remove the parameter from the URL, and the greeting becomes "Hello, World!", the default that `@RequestParam` supplied.
 
-![The JSON response of the service](36_browser_hello.png)
+![The JSON response of the service](images/36_browser_hello.png)
 
 *Figure 11. The service's JSON response in Firefox, containing the request counter and the greeting built from the name parameter.*
 
@@ -204,7 +204,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-![The multi-stage Dockerfile](37_dockerfile.png)
+![The multi-stage Dockerfile](images/37_dockerfile.png)
 
 *Figure 12. The multi-stage Dockerfile in the project root.*
 
@@ -230,13 +230,13 @@ docker push localhost:32000/cst8277/demo-app:1.0
 
 The name given with `-t` deserves a close look, because it does two jobs at once. The part before the first slash, `localhost:32000`, tells Docker which registry the image belongs to, so that `docker push` later knows where to send it without being told again. The part after it, `cst8277/demo-app`, names the image, and the tag after the colon, `1.0`, names this particular version. The final dot tells Docker to use the current folder, with its Dockerfile and source code, as the build context. Figure 13 shows the build, in which the build stage runs Maven and the runtime stage copies in the JAR.
 
-![Building the image](38_docker_build.png)
+![Building the image](images/38_docker_build.png)
 
 *Figure 13. Building the image, in which the build stage runs Maven inside the JDK image and the runtime stage copies the resulting JAR into the JRE image.*
 
 The `docker run` command starts the image in the background, because of `-d`, under the name `demo`, and connects port 8080 of the VM to port 8080 of the container, because of `-p 8080:8080`. Spring Boot needs a few seconds to start, so if `curl` reports that the connection was reset or that the server returned an empty reply, wait a moment and try again. Figure 14 shows the image and the running container, together with the answer "Hello, Docker!".
 
-![The image size and the running container](39_docker_run.png)
+![The image size and the running container](images/39_docker_run.png)
 
 *Figure 14. The image listed with a content size of 135 MB and a disk usage of 534 MB, the container running with port 8080 published, and the service answering with "Hello, Docker!".*
 
@@ -244,7 +244,7 @@ The two sizes in the image listing measure different things. The content size of
 
 Once the test succeeds, `docker rm -f demo` stops and removes the container, freeing port 8080 again, and `docker push` uploads the image to the registry, as Figure 15 shows. From this moment the image exists in a place where Kubernetes can find it.
 
-![Pushing the image to the MicroK8s registry](40_docker_push.png)
+![Pushing the image to the MicroK8s registry](images/40_docker_push.png)
 
 *Figure 15. Pushing the image to the MicroK8s registry at localhost:32000.*
 
@@ -329,7 +329,7 @@ kubectl get pods -l app=demo
 
 Figure 16 shows the first three commands. The rollout reports that first zero, then one, then both of the two replicas became available, the pod listing shows two pods with their own cluster addresses on the node `cst8277-vm`, and the Service listing shows the mapping `8080:30080/TCP` together with the selector `app=demo`.
 
-![The deployment rolled out](41_k8s_deploy.png)
+![The deployment rolled out](images/41_k8s_deploy.png)
 
 *Figure 16. The deployment rolled out, with two running pods, each with its own address on the node cst8277-vm, and a NodePort Service mapping port 30080 to port 8080 of the pods selected by app=demo.*
 
@@ -337,7 +337,7 @@ Figure 16 shows the first three commands. The rollout reports that first zero, t
 
 Figure 17 shows the rest, and it rewards a careful look.
 
-![Load balancing and self-healing](42_k8s_curl_heal.png)
+![Load balancing and self-healing](images/42_k8s_curl_heal.png)
 
 *Figure 17. Four requests answered with the ids 1, 1, 2, and 3, which shows that two pods with separate counters shared the requests, followed by the deletion of the pods and their replacement by new pods, one of them not yet ready.*
 
@@ -356,23 +356,23 @@ kubectl -n kube-system port-forward svc/headlamp 8888:80
 
 The cluster overview in Figure 18 summarizes the resources of the cluster, which in the screenshot are four processor units, about 7 GB of memory, eight pods, and one ready node, and lists recent warning events. Among them you will probably find readiness probes that failed with "connection refused" while the demo pods were starting, which is the same moment the `0/1` in Figure 17 captured, recorded this time as an event rather than as a line of command output.
 
-![Headlamp cluster overview](46_headlamp_overview.png)
+![Headlamp cluster overview](images/46_headlamp_overview.png)
 
 *Figure 18. The Headlamp cluster overview, with one ready node and eight pods, and four warning events reporting readiness probes that were refused while the demo pods were starting.*
 
 The Workloads page in Figure 19 counts the controllers in the cluster by kind. It shows eight healthy pods, six Deployments with their six ReplicaSets, which are the system components, the registry, Headlamp, and our own `demo`, and the single DaemonSet that runs Calico on the node, and a ring beside each count shows what share of them is running. Below the summary it lists the individual workloads. The Pods page in Figure 20 lists every pod in every namespace, including our two demo pods beside the system pods, the registry, and Headlamp itself.
 
-![Workloads overview](47_headlamp_workloads.png)
+![Workloads overview](images/47_headlamp_workloads.png)
 
 *Figure 19. The Workloads page, with eight healthy pods, six Deployments, six ReplicaSets, and one DaemonSet, all of them running.*
 
-![All pods, including the two demo pods](48_headlamp_pods.png)
+![All pods, including the two demo pods](images/48_headlamp_pods.png)
 
 *Figure 20. The Pods page, listing every pod in the cluster, among them the two demo pods.*
 
 Finally, the Map in Figure 21 draws the cluster as a picture, grouped by namespace. The system components, from CoreDNS and Calico to Headlamp and the storage provisioner, sit together in `kube-system`, the registry has a namespace of its own, and our `demo` Deployment sits in `default` beside the `kubernetes` Service that leads to the API server. Each card can be expanded to show the objects that belong to it, which makes the Map a good place to return to whenever a listing on the command line becomes hard to read.
 
-![The Map view of the cluster](49_headlamp_map.png)
+![The Map view of the cluster](images/49_headlamp_map.png)
 
 *Figure 21. The Map view grouped by namespace, with the system components in kube-system, the registry in container-registry, and the demo Deployment in default.*
 
@@ -380,7 +380,7 @@ Finally, the Map in Figure 21 draws the cluster as a picture, grouped by namespa
 
 Sooner or later a deployment fails, and the first command to run is always `kubectl get pods`, because the status of the pods says which link of the chain has broken. Figure 22 turns that observation into a decision guide.
 
-![Troubleshooting a deployment](M08-Fig5-Troubleshooting.png)
+![Troubleshooting a deployment](images/M08-Fig5-Troubleshooting.png)
 
 *Figure 22. A decision guide for troubleshooting, which starts from the pod status reported by kubectl get pods and leads to the likely cause and the next command for each status.*
 

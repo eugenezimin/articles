@@ -12,13 +12,13 @@ The remedy this series adopts is to stop installing course software on your own 
 
 Figure 1 shows the whole environment that the three articles of this series assemble. The outer frame is your own computer, which from now on we call the host. Inside it runs VirtualBox, and inside VirtualBox runs a virtual machine with Ubuntu Linux, which will in turn hold a Java toolchain, Docker, an IDE, a browser, and a small Kubernetes cluster that runs our application. This first article builds the two outer layers, the hypervisor and the operating system, and leaves the rest of the picture for the parts that follow.
 
-![The development environment built in this series](M08-Fig1-Lab-Environment.png)
+![The development environment built in this series](images/M08-Fig1-Lab-Environment.png)
 
 *Figure 1. The complete lab environment, in which VirtualBox on your own computer hosts a single Ubuntu virtual machine that contains every tool and the Kubernetes cluster used for the rest of the course.*
 
 The work is divided into eight steps, which Figure 2 lays out in order. This article covers the first two, installing VirtualBox and creating the Ubuntu virtual machine, [Part 2](Part%202%20-%20A%20Kubernetes%20Cluster%20of%20Your%20Own.md) covers the third, and [Part 3](Part%203%20-%20From%20Source%20Code%20to%20a%20Running%20Pod.md) covers the remaining five. Each step ends with a small check, such as a version number, a login screen, or an HTTP response, so that a problem is caught in the step that caused it rather than three steps later, when its cause has become much harder to find.
 
-![The eight steps of the series](M08-Fig2-Roadmap.png)
+![The eight steps of the series](images/M08-Fig2-Roadmap.png)
 
 *Figure 2. The eight steps of the series, of which this article covers the first two.*
 
@@ -56,7 +56,7 @@ With both files downloaded, start VirtualBox and click *New*. The dialog that op
 
 One checkbox on this page needs your attention. VirtualBox offers to *Proceed with Unattended Installation*, which would install Ubuntu silently with settings of its own choosing, and the box is checked by default, as it still is in the screenshot. Clear it, so that you follow the ordinary Ubuntu installer yourself, because the choices that installer asks you to make are exactly the ones you need to understand when something goes wrong later.
 
-![Creating a new VM with a name, an ISO image, and an operating system](01_new_vm_name.png)
+![Creating a new VM with a name, an ISO image, and an operating system](images/01_new_vm_name.png)
 
 *Figure 3. The first page of the New Virtual Machine dialog, where the VM is named Ubuntu and the ARM64 ISO is selected, and where the Proceed with Unattended Installation box, still checked here, must be cleared before continuing.*
 
@@ -64,19 +64,19 @@ One checkbox on this page needs your attention. VirtualBox offers to *Proceed wi
 
 Open the section *Specify virtual hardware* and enter the resources chosen in section 2.2, which means 8192 MB of base memory and 4 CPUs, as in Figure 4. Keep *Use EFI* enabled. EFI is the modern firmware that a computer runs before its operating system starts, the successor of the older BIOS, and Ubuntu on ARM64 in particular expects to find it.
 
-![Assigning 8 GB of memory and 4 CPUs](02_new_vm_hardware.png)
+![Assigning 8 GB of memory and 4 CPUs](images/02_new_vm_hardware.png)
 
 *Figure 4. The virtual hardware section, with 8192 MB of memory, 4 processors, and EFI enabled.*
 
 Next, open *Specify virtual hard disk* and set the size to 60 GB, as in Figure 5. The disk is dynamically allocated, which means that VirtualBox creates a file on your computer that starts small and grows only as Ubuntu actually writes data, up to the 60 GB limit, so a freshly installed VM occupies far less of your real disk than its nominal size suggests.
 
-![Creating a 60 GB virtual hard disk](03_new_vm_disk.png)
+![Creating a 60 GB virtual hard disk](images/03_new_vm_disk.png)
 
 *Figure 5. The virtual hard disk section, where a dynamically allocated 60 GB disk is created for the VM.*
 
 Click *Finish*, and the new machine appears in the VirtualBox Manager, as Figure 6 shows. The details pane is worth reading once, because it confirms each decision made so far, with 8192 MB of memory, four processors, EFI enabled, a 60 GB disk file named `Ubuntu.vdi`, the Ubuntu ISO inserted into a virtual optical drive, and a single network adapter attached to NAT, a setting we return to in section 6.
 
-![The new VM in the VirtualBox Manager](04_manager_ubuntu.png)
+![The new VM in the VirtualBox Manager](images/04_manager_ubuntu.png)
 
 *Figure 6. The new Ubuntu VM in the VirtualBox Manager, powered off, with its memory, processors, disk, installation ISO, and NAT network adapter listed in the details pane.*
 
@@ -88,25 +88,25 @@ Select the VM and click *Start*. VirtualBox opens a window that plays the role o
 
 The first thing the VM displays is the GRUB menu of the installation image, shown in Figure 7. GRUB is the boot loader that Ubuntu uses to choose what to start, and here it offers a few ways to start the installation medium. Choose *Try or Install Ubuntu* and press Enter.
 
-![The GRUB boot menu of the Ubuntu ISO](05_grub.png)
+![The GRUB boot menu of the Ubuntu ISO](images/05_grub.png)
 
 *Figure 7. The GRUB boot menu of the Ubuntu installation image, where Try or Install Ubuntu starts the installer.*
 
 After a short wait the graphical installer appears and guides you through a series of pages. The first four ask for little thought, and Figures 8 to 11 show them in order. You choose the language of the installer and the keyboard layout that matches your physical keyboard, and then the installer reports a wired network connection. That connection is not a cable at all, but the virtual network card VirtualBox provides, which the guest experiences as an Ethernet port with internet access through the host. On the fourth page, choose *Install Ubuntu* rather than *Try Ubuntu*.
 
-![Choosing the installer language](06_inst_language.png)
+![Choosing the installer language](images/06_inst_language.png)
 
 *Figure 8. The language page of the installer.*
 
-![Selecting the keyboard layout](07_inst_keyboard.png)
+![Selecting the keyboard layout](images/07_inst_keyboard.png)
 
 *Figure 9. The keyboard page, where the layout should match the keyboard you actually type on.*
 
-![The VM uses VirtualBox's NAT network as a wired connection](08_inst_network.png)
+![The VM uses VirtualBox's NAT network as a wired connection](images/08_inst_network.png)
 
 *Figure 10. The network page, which reports a wired connection because the guest sees VirtualBox's virtual network card as an Ethernet port.*
 
-![Choosing to install Ubuntu](09_inst_try_install.png)
+![Choosing to install Ubuntu](images/09_inst_try_install.png)
 
 *Figure 11. The page that chooses between trying Ubuntu from the image and installing it, where Install Ubuntu is the correct choice.*
 
@@ -114,15 +114,15 @@ After a short wait the graphical installer appears and guides you through a seri
 
 The next three pages decide what goes onto the disk. Choose *Interactive installation*, shown in Figure 12, which walks through the remaining questions one by one, and then the *Default selection* of applications in Figure 13, which installs the desktop, a browser, and basic utilities without the office tools of the *Extended selection*. The page in Figure 14, titled *Optimise your computer*, offers third-party graphics and Wi-Fi drivers and support for additional media formats. Leave both boxes empty, because the VM has no physical graphics card or Wi-Fi adapter of its own, so such drivers would have nothing to drive.
 
-![Interactive installation](10_inst_type.png)
+![Interactive installation](images/10_inst_type.png)
 
 *Figure 12. The installation type page, where Interactive installation lets you make each remaining choice yourself.*
 
-![Default selection of applications](11_inst_apps.png)
+![Default selection of applications](images/11_inst_apps.png)
 
 *Figure 13. The applications page, where the Default selection installs a lean desktop.*
 
-![Proprietary software is not needed in a VM](12_inst_optimise.png)
+![Proprietary software is not needed in a VM](images/12_inst_optimise.png)
 
 *Figure 14. The page offering proprietary drivers and media codecs, both left unchecked because a VM has no physical graphics or Wi-Fi hardware.*
 
@@ -130,13 +130,13 @@ The next three pages decide what goes onto the disk. Choose *Interactive install
 
 The page in Figure 15 is the one that makes students hesitate, because it offers to *Erase disk and install Ubuntu*, and on a physical computer that sentence would mean losing everything on it. Inside a VM the meaning is different. The only disk the guest can see is the empty 60 GB virtual disk created in section 3.3, which is a file on your host, so erasing it erases only that empty file and cannot reach a single byte of your own data. Choose this option with a clear conscience.
 
-![Erasing the virtual disk](13_inst_disk.png)
+![Erasing the virtual disk](images/13_inst_disk.png)
 
 *Figure 15. The disk setup page, where Erase disk and install Ubuntu refers only to the empty virtual disk created for this VM.*
 
 The installer then offers to encrypt the disk, as Figure 16 shows. Encryption protects a laptop that might be stolen, but a lab VM holds no personal data and would ask for an extra passphrase on every boot, so choose no encryption.
 
-![No disk encryption for the lab VM](14_inst_encryption.png)
+![No disk encryption for the lab VM](images/14_inst_encryption.png)
 
 *Figure 16. The encryption page, where no encryption is the sensible choice for a lab VM.*
 
@@ -144,27 +144,27 @@ The installer then offers to encrypt the disk, as Figure 16 shows. Encryption pr
 
 On the page in Figure 17, create your user account. The examples in this series use the user name `student` and the computer name `cst8277-vm`, and you will see both in every terminal prompt of the screenshots that follow, in the form `student@cst8277-vm`. You may choose other names, but using the same ones makes it easier to compare your screen with the figures. Choose a password you will remember, since Ubuntu will ask for it whenever a command needs administrator rights.
 
-![Creating the user account](15_inst_account.png)
+![Creating the user account](images/15_inst_account.png)
 
 *Figure 17. The account page, where the user student and the computer name cst8277-vm are created.*
 
 Choose your time zone next, as in Figure 18, where Toronto has been selected. The installer then summarizes every choice on a review page, shown in Figure 19, which is the last moment at which anything can be changed without starting over. Read it, and click *Install*.
 
-![Selecting the time zone](16_inst_timezone.png)
+![Selecting the time zone](images/16_inst_timezone.png)
 
 *Figure 18. The time zone page, with Toronto and the America/Toronto zone selected.*
 
-![Reviewing the installation choices](17_inst_review.png)
+![Reviewing the installation choices](images/17_inst_review.png)
 
 *Figure 19. The review page, which lists every choice made so far before the installation begins.*
 
 The installation takes about ten minutes, during which the installer shows a progress page like the one in Figure 20. When it finishes, it announces that the installation is complete and offers *Restart now*, as in Figure 21.
 
-![Installation in progress](18_inst_progress.png)
+![Installation in progress](images/18_inst_progress.png)
 
 *Figure 20. The installation in progress.*
 
-![Installation complete](19_inst_complete.png)
+![Installation complete](images/19_inst_complete.png)
 
 *Figure 21. The installer reporting that the installation is complete, with the Restart now button.*
 
@@ -172,25 +172,25 @@ The installation takes about ten minutes, during which the installer shows a pro
 
 When you click *Restart now*, the VM shuts down the installer and, before starting again, asks you to remove the installation medium and press Enter, as Figure 22 shows. On a physical computer you would take the DVD out of the drive, which is necessary because otherwise the machine would boot into the installer once more. In VirtualBox there is nothing to remove by hand, because pressing Enter is enough and VirtualBox ejects the virtual DVD by itself.
 
-![Removing the installation medium before the first boot](20_remove_medium.png)
+![Removing the installation medium before the first boot](images/20_remove_medium.png)
 
 *Figure 22. The request to remove the installation medium, which in VirtualBox only requires pressing Enter.*
 
 Ubuntu now boots from its own virtual disk for the first time and shows the login screen in Figure 23. Log in with the password you chose on the account page.
 
-![Logging in to Ubuntu](21_login.png)
+![Logging in to Ubuntu](images/21_login.png)
 
 *Figure 23. The Ubuntu login screen with the student account.*
 
 A welcome assistant greets you after the first login, as in Figure 24, and walks you through a few optional settings, which you may accept or skip as you like. In the screenshot a notification has already appeared that 74 updates are available, a reminder that an ISO image is a snapshot of the day it was built and that the packages it installed have been revised many times since.
 
-![The Ubuntu welcome screen](22_welcome.png)
+![The Ubuntu welcome screen](images/22_welcome.png)
 
 *Figure 24. The welcome assistant of Ubuntu 26.04.1 LTS, with a notification that software updates are already available.*
 
 Once the assistant closes, you have a working Ubuntu desktop, shown in Figure 25, with the dock of applications on the left and, at the bottom of the dock, the button that shows every installed application.
 
-![The Ubuntu 26.04 LTS desktop](22b_desktop.png)
+![The Ubuntu 26.04 LTS desktop](images/22b_desktop.png)
 
 *Figure 25. The Ubuntu 26.04 LTS desktop, ready for use.*
 
@@ -210,7 +210,7 @@ The VM window is a perfectly good place to work, but typing long commands into i
 
 The network adapter we saw in Figure 6 is attached to NAT, which stands for Network Address Translation. In this mode VirtualBox acts like the router in a home network, giving the guest a private address of its own, usually 10.0.2.15, and forwarding the guest's outgoing connections to the internet under the host's address. That is why `apt-get`, the snap store, and Docker Hub can all be reached from inside the VM without any configuration. The same arrangement has a consequence that surprises many students, which is that connections cannot be opened in the other direction, from the host to the guest, unless we tell VirtualBox explicitly which port on the host should lead to which port in the guest. Figure 26 shows such a rule, called a port forward, for SSH.
 
-![VirtualBox NAT networking and port forwarding](M08-Fig3-VM-Networking.png)
+![VirtualBox NAT networking and port forwarding](images/M08-Fig3-VM-Networking.png)
 
 *Figure 26. VirtualBox NAT networking, in which the guest reaches the internet through the host, and a port-forwarding rule from 127.0.0.1:2222 on the host to port 22 in the guest makes SSH possible in the opposite direction.*
 
