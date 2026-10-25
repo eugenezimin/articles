@@ -1,0 +1,79 @@
+<mxfile host="drawio">
+  <diagram id="architecture" name="Architecture">
+    <mxGraphModel dx="1200" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- UI layer -->
+        <mxCell id="ui" value="SwiftUI interface" style="swimlane;rounded=1;arcSize=6;startSize=32;fontFamily=Helvetica;fontSize=15;fontStyle=1;fontColor=#1F2933;fillColor=#E8F1FD;strokeColor=#4A7FD4;swimlaneFillColor=#F6F9FE;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="640" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ui1" value="Toolbar and Test menu&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;start · pause · resume · reset&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#1F2933;fillColor=#FFFFFF;strokeColor=#4A7FD4;" vertex="1" parent="ui">
+          <mxGeometry x="20" y="48" width="180" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="ui2" value="Content tabs&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;Chart · Stats · Texts · Load&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#1F2933;fillColor=#FFFFFF;strokeColor=#4A7FD4;" vertex="1" parent="ui">
+          <mxGeometry x="230" y="48" width="180" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="ui3" value="Settings inspector&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;target · method · load · limits&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#1F2933;fillColor=#FFFFFF;strokeColor=#4A7FD4;" vertex="1" parent="ui">
+          <mxGeometry x="440" y="48" width="180" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- Model -->
+        <mxCell id="model" value="Observable session model&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;run state · totals · chart series · responses&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;fontStyle=1;fontColor=#1F2933;fillColor=#EEF7EE;strokeColor=#4E9A5B;" vertex="1" parent="1">
+          <mxGeometry x="200" y="210" width="320" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="store" value="Remembered&lt;br&gt;configuration" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fontColor=#1F2933;fillColor=#FFFFFF;strokeColor=#4E9A5B;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="214" width="120" height="58" as="geometry" />
+        </mxCell>
+
+        <!-- Facade -->
+        <mxCell id="facade" value="Engine facade&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;run lifecycle · event stream&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;fontStyle=1;fontColor=#1F2933;fillColor=#FFF4E5;strokeColor=#D98A1E;" vertex="1" parent="1">
+          <mxGeometry x="200" y="336" width="320" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- Adapters -->
+        <mxCell id="adapters" value="Transport adapters" style="swimlane;rounded=1;arcSize=6;startSize=32;fontFamily=Helvetica;fontSize=15;fontStyle=1;fontColor=#1F2933;fillColor=#FFF4E5;strokeColor=#D98A1E;swimlaneFillColor=#FFFBF5;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="458" width="640" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="http" value="HTTP&lt;br&gt;&lt;font color=&quot;#5B6B7B&quot; style=&quot;font-size:12px;font-weight:normal&quot;&gt;all methods · bodies&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontStyle=1;fontColor=#1F2933;fillColor=#FFFFFF;strokeColor=#D98A1E;" vertex="1" parent="adapters">
+          <mxGeometry x="20" y="46" width="160" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="grpc" value="gRPC&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;planned&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#8A949E;fillColor=#F7F7F7;strokeColor=#A8B0B8;dashed=1;" vertex="1" parent="adapters">
+          <mxGeometry x="200" y="46" width="130" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ws" value="WebSocket&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;planned&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#8A949E;fillColor=#F7F7F7;strokeColor=#A8B0B8;dashed=1;" vertex="1" parent="adapters">
+          <mxGeometry x="345" y="46" width="130" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="tcp" value="TCP&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;planned&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#8A949E;fillColor=#F7F7F7;strokeColor=#A8B0B8;dashed=1;" vertex="1" parent="adapters">
+          <mxGeometry x="490" y="46" width="130" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- Down: actions -->
+        <mxCell id="e1" value="actions" style="endArrow=block;endFill=1;html=1;strokeColor=#4A7FD4;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;fontColor=#4A7FD4;labelBackgroundColor=#FFFFFF;exitX=0.35;exitY=1;entryX=0.35;entryY=0;" edge="1" parent="1" source="ui" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="start · pause · reset" style="endArrow=block;endFill=1;html=1;strokeColor=#4E9A5B;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;fontColor=#4E9A5B;labelBackgroundColor=#FFFFFF;exitX=0.3;exitY=1;entryX=0.3;entryY=0;" edge="1" parent="1" source="model" target="facade">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="validated session" style="endArrow=block;endFill=1;html=1;strokeColor=#D98A1E;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;fontColor=#D98A1E;labelBackgroundColor=#FFFFFF;exitX=0.3;exitY=1;entryX=0.4;entryY=0;" edge="1" parent="1" source="facade" target="adapters">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Up: events -->
+        <mxCell id="e4" value="events" style="endArrow=block;endFill=1;html=1;strokeColor=#D98A1E;strokeWidth=1.5;dashed=1;fontFamily=Helvetica;fontSize=12;fontColor=#D98A1E;labelBackgroundColor=#FFFFFF;exitX=0.6;exitY=0;entryX=0.7;entryY=1;" edge="1" parent="1" source="adapters" target="facade">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="ticks · responses" style="endArrow=block;endFill=1;html=1;strokeColor=#D98A1E;strokeWidth=1.5;dashed=1;fontFamily=Helvetica;fontSize=12;fontColor=#D98A1E;labelBackgroundColor=#FFFFFF;exitX=0.7;exitY=0;entryX=0.7;entryY=1;" edge="1" parent="1" source="facade" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="observed state" style="endArrow=block;endFill=1;html=1;strokeColor=#4E9A5B;strokeWidth=1.5;dashed=1;fontFamily=Helvetica;fontSize=12;fontColor=#4E9A5B;labelBackgroundColor=#FFFFFF;exitX=0.7;exitY=0;entryX=0.65;entryY=1;" edge="1" parent="1" source="model" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="endArrow=none;html=1;strokeColor=#4E9A5B;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="model" target="store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
