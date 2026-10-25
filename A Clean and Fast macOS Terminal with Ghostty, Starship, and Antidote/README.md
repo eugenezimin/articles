@@ -1,0 +1,9 @@
+# A Clean and Fast macOS Terminal with Ghostty, Starship, and Antidote
+
+A practical walkthrough of a macOS terminal setup rebuilt from scratch around three small, independently replaceable tools, replacing one long `.zshrc`, an all-in-one framework used only in part, and a home folder full of unexplained dotfiles. The article opens with a car analogy that untangles the often-confused names: **zsh** is the engine, **antidote** is the parts manager that bolts plugins onto it, **starship** is the dashboard, and **Ghostty** is the GPU-accelerated body around everything.
+
+The setup is covered layer by layer. Ghostty is configured through a single file kept at `~/.config/ghostty/config.ghostty`, with a global drop-down **quick terminal** bound to Cmd+`, shell integration with custom tab titles that show the folder, git branch, and running command, and `ssh-terminfo` for remote hosts. The home folder is cleaned up with a single variable, `ZDOTDIR`, which moves every zsh file into `~/.config/zsh` and leaves only a three-line `~/.zshenv` behind, together with numbered `conf.d/` files, a `chmod 600` secrets file, and a warning about history that seems to vanish after the switch. antidote replaces Oh My Zsh by loading only the pieces actually needed through `use-omz`, with notes on why plugin order matters. starship draws a two-line, Powerlevel10k-style "lean" prompt with compact git status, a custom path shortener, and a right side that only fills in when there is something worth saying.
+
+The article closes by recommending an incremental adoption path, starting with the `ZDOTDIR` change, and points to the [development-utilities](https://github.com/eugenezimin/development-utilities/tree/main/initial-install) repository, where all config files and an installer with a `--dry-run` mode are available.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/a-clean-and-fast-macos-terminal-with-ghostty-starship-and-antidote-5ai) on October 24, 2026.
