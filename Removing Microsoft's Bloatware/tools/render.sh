@@ -1,12 +1,12 @@
 #!/bin/zsh
-# render.sh — build every figure PNG in images/ from the sources in images/src/.
+# render.sh — build every figure PNG in images/ from the sources in tools/src/.
 # Terminal captures (.txt) go through term2svg.py as Ghostty windows; diagrams are
 # hand-written SVG. Every PNG comes out exactly $WIDTH pixels wide.
 # Run tools/capture.sh beforehand to refresh the captures.
 
 set -eu
 root="${0:A:h:h}"
-src="$root/images/src"
+src="$root/tools/src"
 img="$root/images"
 tools="$root/tools"
 WIDTH=2400   # every figure, terminal or diagram

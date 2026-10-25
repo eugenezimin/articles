@@ -1,13 +1,13 @@
 #!/bin/zsh
 # capture.sh — record the real terminal sessions used as figures.
 # Every command here is read-only; ms-uninstall.sh only ever runs with --dry-run.
-# Output goes to images/src/*.txt with $HOME rewritten to ~.
+# Output goes to tools/src/*.txt with $HOME rewritten to ~.
 #
 # The script lives in development-utilities; override with MS_UNINSTALL_DIR.
 
 set -u
 root="${0:A:h:h}"
-out="$root/images/src"
+out="$root/tools/src"
 script_dir="${MS_UNINSTALL_DIR:-$HOME/Developer/development-utilities/ms-uninstall}"
 [[ -x "$script_dir/ms-uninstall.sh" ]] || { print -u2 "ms-uninstall.sh not found in $script_dir"; exit 1; }
 mkdir -p "$out"
