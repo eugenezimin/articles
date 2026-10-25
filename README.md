@@ -105,6 +105,40 @@ An article about building Requester, a real-time HTTP load testing app for macOS
 
 Published on [Medium](https://medium.com/@eugene-zimin/a-native-macos-load-tester-app-and-backpressure-made-it-honest-6b72d946f4d0) and [DEV.to](https://dev.to/eugene-zimin/a-native-macos-load-tester-app-and-backpressure-made-it-honest-3jah).
 
+#### Building Pace Maker or how I did load testing
+An article about building Pace Maker, a small native macOS load tester in Swift and SwiftUI, designed as a fast, trustworthy feedback loop for backend developers rather than a heavyweight capacity-planning suite. Its central idea is separating pacing from concurrency: requests are released on a schedule derived from the target rate alone, pass through a bounded backlog to a fixed worker pool, and are admitted by an adaptive connection gate based on Little's law, with excess load shed and counted so the backpressure stays honest. The piece also covers measuring honestly (per-second normalization, error rate over finished requests, no partial-window spikes), composing real requests with a JSON-safe body editor, and a layered architecture whose transport adapters leave room for gRPC, WebSocket, and raw TCP.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/building-pace-maker-or-how-i-did-load-testing-21p9) on October 19, 2026.
+
+#### The Cost of Concurrency and Parallelism
+The opening article of a benchmarking series that measures the pure dispatch overhead of concurrency (raw threads, thread pools with work-stealing and lock-based queues, and `async`) on a tiny, side-effect-free CPU workload, the ten-thousand-term Leibniz series for π, where spawning and waking workers can cost more than the work itself. It lays out the methodology (a hundred-task fan-out per sample, a warm-up run, and a thousand timed samples), reports p50/p99/p999 instead of a mean, guards against the optimizer deleting the work, and documents the Apple M5 Pro test machine and the pinned Rust, Go, Node.js, Python, and Java runtimes, with Rust chosen as the cleanest baseline.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/five-languages-one-loop-a-cross-language-concurrency-benchmark-the-beginning-403a) on June 21, 2026.
+
+#### A Clean and Fast macOS Terminal with Ghostty, Starship, and Antidote
+A walkthrough of a macOS terminal rebuilt around three small, swappable tools: Ghostty as the GPU-accelerated terminal with a global drop-down quick terminal, antidote as a framework-free plugin manager that cherry-picks Oh My Zsh pieces, and starship as a two-line, Powerlevel10k-style prompt with compact git status and a custom path shortener. It also shows how a single `ZDOTDIR` variable moves every zsh file into `~/.config/zsh`, leaving a clean home folder, and points to the [development-utilities](https://github.com/eugenezimin/development-utilities/tree/main/initial-install) repository for all config files and an installer.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/a-clean-and-fast-macos-terminal-with-ghostty-starship-and-antidote-5ai) on October 24, 2026.
+
+---
+
+### Infrastructure & Kubernetes
+
+#### VM, Linux, K8s and First Pod (Parts 1–3)
+A three-part series written for CST8277 Enterprise Application Programming that builds a complete, reproducible development environment, from an empty virtual machine to a Spring Boot service running on Kubernetes.
+
+**Part 1 — A Computer Inside Your Computer** argues for isolating course tooling in a VM rather than on the host, explains hypervisors and how to size the guest, and walks through creating a VirtualBox VM and installing Ubuntu 26.04 LTS (ARM64 or AMD64), followed by NAT port forwarding for SSH access and a troubleshooting guide.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/a-computer-inside-your-computer-7dk) on October 25, 2026.
+
+**Part 2 — A Kubernetes Cluster of Your Own** frames Kubernetes as a desired-state control loop, installs MicroK8s 1.36, introduces pods, Deployments, ReplicaSets, DaemonSets, and Services through a self-healing `nginx` experiment, and adds a local image registry at `localhost:32000` and the Headlamp web UI.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/a-kubernetes-cluster-of-your-own-479i) on October 25, 2026.
+
+**Part 3 — From Source Code to a Running Pod** walks the chain from source code to JAR, image, registry, pods, and Service. It writes a Spring Boot REST service with Actuator health probes, packages it with a multi-stage, non-root Dockerfile, and deploys it declaratively with two replicas, so that the per-pod counters reveal horizontal scaling. It closes with a Headlamp tour, a pod-status troubleshooting guide, and hands-on activities on rolling updates and fault injection.
+
+Published on [DEV.to](https://dev.to/eugene-zimin/from-source-code-to-a-running-pod-4p6d) on October 25, 2026.
+
 ---
 
 ## Contributing 
