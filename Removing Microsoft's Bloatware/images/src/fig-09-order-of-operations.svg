@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="400" viewBox="0 0 1160 400">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#59636e"/>
+    </marker>
+    <style>
+      .sans { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, 'SF Mono', monospace; }
+      .title { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #1f2328; }
+      .cmd { font-family: Menlo, 'SF Mono', monospace; font-size: 13px; fill: #1a4fb3; }
+      .why { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; fill: #1f2328; }
+    </style>
+  </defs>
+  <rect width="1160" height="400" fill="#ffffff"/>
+
+  <!-- step boxes -->
+  <g>
+    <rect x="30" y="40" width="250" height="130" rx="12" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+    <circle cx="62" cy="74" r="16" fill="#2f6fdf"/><text x="62" y="80" text-anchor="middle" class="sans" font-size="16" font-weight="700" fill="#fff">1</text>
+    <text x="88" y="80" class="title">Quit the apps</text>
+    <text x="50" y="122" class="cmd">osascript … to quit</text>
+    <text x="50" y="146" class="cmd">pgrep -x "$app_name"</text>
+
+    <rect x="310" y="40" width="250" height="130" rx="12" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+    <circle cx="342" cy="74" r="16" fill="#2f6fdf"/><text x="342" y="80" text-anchor="middle" class="sans" font-size="16" font-weight="700" fill="#fff">2</text>
+    <text x="368" y="80" class="title">Unload launch jobs</text>
+    <text x="330" y="122" class="cmd">launchctl bootout</text>
+    <text x="330" y="146" class="cmd">  gui/$UID/$label</text>
+
+    <rect x="590" y="40" width="250" height="130" rx="12" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+    <circle cx="622" cy="74" r="16" fill="#2f6fdf"/><text x="622" y="80" text-anchor="middle" class="sans" font-size="16" font-weight="700" fill="#fff">3</text>
+    <text x="648" y="80" class="title">Move to the Trash</text>
+    <text x="610" y="122" class="cmd">mv -f -- "$path" \</text>
+    <text x="610" y="146" class="cmd">  ~/.Trash/</text>
+
+    <rect x="870" y="40" width="260" height="130" rx="12" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+    <circle cx="902" cy="74" r="16" fill="#2f6fdf"/><text x="902" y="80" text-anchor="middle" class="sans" font-size="16" font-weight="700" fill="#fff">4</text>
+    <text x="928" y="80" class="title">Restart cfprefsd</text>
+    <text x="890" y="122" class="cmd">killall cfprefsd</text>
+  </g>
+
+  <g stroke="#59636e" stroke-width="1.6">
+    <line x1="282" y1="105" x2="306" y2="105" marker-end="url(#arr)"/>
+    <line x1="562" y1="105" x2="586" y2="105" marker-end="url(#arr)"/>
+    <line x1="842" y1="105" x2="866" y2="105" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- what each step prevents -->
+  <text x="30" y="214" class="sans" font-size="13" font-weight="600" fill="#cf222e">WITHOUT THIS STEP</text>
+  <g>
+    <rect x="30" y="228" width="250" height="130" rx="12" fill="#ffebe9" stroke="#cf222e"/>
+    <text x="48" y="260" class="why">Files disappear from under</text>
+    <text x="48" y="282" class="why">an app that may still be</text>
+    <text x="48" y="304" class="why">holding unsaved work.</text>
+
+    <rect x="310" y="228" width="250" height="130" rx="12" fill="#ffebe9" stroke="#cf222e"/>
+    <text x="328" y="260" class="why">launchd keeps the job loaded</text>
+    <text x="328" y="282" class="why">and firing on its schedule</text>
+    <text x="328" y="304" class="why">until the next reboot, with</text>
+    <text x="328" y="326" class="why">nothing left on disk to edit.</text>
+
+    <rect x="590" y="228" width="250" height="130" rx="12" fill="#ffebe9" stroke="#cf222e"/>
+    <text x="608" y="260" class="why">With rm -rf instead, one</text>
+    <text x="608" y="282" class="why">wrong path or a container</text>
+    <text x="608" y="304" class="why">you still needed is gone</text>
+    <text x="608" y="326" class="why">for good.</text>
+
+    <rect x="870" y="228" width="260" height="130" rx="12" fill="#ffebe9" stroke="#cf222e"/>
+    <text x="888" y="260" class="why">The preferences daemon still</text>
+    <text x="888" y="282" class="why">holds the deleted settings in</text>
+    <text x="888" y="304" class="why">memory and can write them</text>
+    <text x="888" y="326" class="why">back to disk.</text>
+  </g>
+</svg>

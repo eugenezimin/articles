@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640">
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, 'SF Mono', monospace; }
+      .item { font-family: Menlo, 'SF Mono', monospace; font-size: 13px; fill: #1f2328; }
+    </style>
+  </defs>
+  <rect width="1100" height="640" fill="#ffffff"/>
+
+  <!-- the app -->
+  <rect x="380" y="24" width="340" height="76" rx="12" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+  <text x="550" y="56" text-anchor="middle" class="sans" font-size="18" font-weight="600" fill="#1f2328">Microsoft Teams.app</text>
+  <text x="550" y="82" text-anchor="middle" class="mono" font-size="14" fill="#1a4fb3">$id = com.microsoft.teams2</text>
+
+  <!-- fan-out -->
+  <g stroke="#8c959f" stroke-width="1.5" fill="none">
+    <path d="M550 100 C550 130 240 130 240 176"/>
+    <path d="M550 100 L550 176"/>
+    <path d="M550 100 C550 130 920 130 920 176"/>
+  </g>
+
+  <!-- ~/Library band -->
+  <rect x="30" y="150" width="1040" height="262" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="50" y="172" class="sans" font-size="13" font-weight="600" fill="#59636e">~/Library — YOUR ACCOUNT</text>
+
+  <!-- column A: data -->
+  <rect x="60" y="184" width="360" height="212" rx="10" fill="#dafbe1" stroke="#1a7f37"/>
+  <text x="80" y="210" class="sans" font-size="16" font-weight="700" fill="#1a7f37">Data and settings</text>
+  <text x="80" y="240" class="item">Containers/$id</text>
+  <text x="80" y="265" class="item">Application Support/$id</text>
+  <text x="80" y="290" class="item">Application Scripts/$id</text>
+  <text x="80" y="315" class="item">Preferences/$id.plist</text>
+  <text x="80" y="340" class="item">Preferences/ByHost/$id.*.plist</text>
+  <text x="80" y="365" class="item">Saved Application State/$id.savedState</text>
+
+  <!-- column B: caches -->
+  <rect x="440" y="184" width="300" height="212" rx="10" fill="#fff8c5" stroke="#9a6700"/>
+  <text x="460" y="210" class="sans" font-size="16" font-weight="700" fill="#9a6700">Caches and web storage</text>
+  <text x="460" y="240" class="item">Caches/$id</text>
+  <text x="460" y="265" class="item">HTTPStorages/$id</text>
+  <text x="460" y="290" class="item">WebKit/$id</text>
+  <text x="460" y="315" class="item">Cookies/$id.binarycookies</text>
+  <text x="460" y="340" class="item">Logs/$id</text>
+
+  <!-- column C: runs -->
+  <rect x="760" y="184" width="290" height="212" rx="10" fill="#ffebe9" stroke="#cf222e"/>
+  <text x="780" y="210" class="sans" font-size="16" font-weight="700" fill="#cf222e">Things that run</text>
+  <text x="780" y="240" class="item">LaunchAgents/$id.plist</text>
+  <text x="780" y="272" class="sans" font-size="12.5" fill="#59636e">starts at login, as you</text>
+
+  <!-- /Library band -->
+  <rect x="30" y="432" width="1040" height="184" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="50" y="454" class="sans" font-size="13" font-weight="600" fill="#59636e">/Library — THE WHOLE MACHINE (NEEDS SUDO)</text>
+
+  <rect x="60" y="466" width="360" height="134" rx="10" fill="#dafbe1" stroke="#1a7f37"/>
+  <text x="80" y="498" class="item">Application Support/$id</text>
+  <text x="80" y="523" class="item">Preferences/$id.plist</text>
+
+  <rect x="440" y="466" width="300" height="134" rx="10" fill="#fff8c5" stroke="#9a6700"/>
+  <text x="460" y="498" class="item">Caches/$id</text>
+  <text x="460" y="523" class="item">Logs/$id</text>
+
+  <rect x="760" y="466" width="290" height="134" rx="10" fill="#ffebe9" stroke="#cf222e"/>
+  <text x="780" y="498" class="item">LaunchAgents/$id.plist</text>
+  <text x="780" y="523" class="item">LaunchDaemons/$id.plist</text>
+  <text x="780" y="548" class="item">PrivilegedHelperTools/$id</text>
+  <text x="780" y="580" class="sans" font-size="12.5" fill="#59636e">daemons and helpers run as root</text>
+</svg>

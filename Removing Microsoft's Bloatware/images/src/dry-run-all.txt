@@ -1,0 +1,111 @@
+$ ./ms-uninstall.sh --dry-run --select all --shared all
+
+Scanning for Microsoft software ...
+
+------------------------------------------------------------
+Microsoft products found
+------------------------------------------------------------
+   1) Microsoft Teams                           3.4 GB  (12 items)
+      com.microsoft.teams2
+   2) Windows App                               219 MB  (5 items)
+      com.microsoft.rdc.macos
+
+   3) Orphaned Microsoft leftovers                0 MB  (3 items)
+      data with no matching installed app:
+        com.microsoft.pasteboard-xpc
+        com.microsoft.shared.plist
+
+------------------------------------------------------------
+Select what to REMOVE. Everything you do not select is kept.
+Enter numbers ("1 3 5" or "1,3,5"), "all", or "none".
+------------------------------------------------------------
+Selection (from --select): all
+
+------------------------------------------------------------
+Shared Microsoft components
+------------------------------------------------------------
+   1) Microsoft AutoUpdate (MAU) + its updater agent           15 MB
+      nothing you kept depends on this
+   2) Office group containers (documents, settings, Outlook mail store)    214 MB
+      nothing you kept depends on this
+   3) Shared Microsoft support files (/Library and ~/Library)     11 MB
+      nothing you kept depends on this
+   4) Remaining Microsoft launch agents / daemons / privileged helpers      0 MB
+      nothing you kept depends on this
+   5) Office licence entries in the login Keychain                 -
+      you will have to sign in again if you reinstall Office
+
+Select shared components to remove ("1 2", "all", or "none"): all (from --shared)
+
+NOTE: 1 file(s) are stored inside ~/Library/Containers/com.microsoft.rdc.macos/Data/Documents
+      ~/Library/Containers/com.microsoft.rdc.macos/Data/Documents/HealthChecks/README.txt
+      Copy them out first if they matter.
+
+------------------------------------------------------------
+REMOVAL PLAN
+------------------------------------------------------------
+
+  [Microsoft Teams]
+       1.1 GB  /Applications/Microsoft Teams.app
+       2.3 GB  ~/Library/Containers/com.microsoft.teams2
+         7 MB  ~/Library/Containers/com.microsoft.teams2.agent
+         0 MB  ~/Library/Containers/com.microsoft.teams2.notificationcenter
+         0 MB  ~/Library/Containers/com.microsoft.teams2.respawn
+         0 MB  ~/Library/Containers/com.microsoft.teams2.widgetextension
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.agent
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.notificationcenter
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.respawn
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.widgetextension
+         0 MB  ~/Library/Preferences/com.microsoft.teams2.helper.plist
+
+  [Windows App]
+       217 MB  /Applications/Windows App.app
+         1 MB  ~/Library/Containers/com.microsoft.rdc.macos
+         0 MB  ~/Library/Containers/com.microsoft.rdc.macos.qlx
+         0 MB  ~/Library/Application Scripts/com.microsoft.rdc.macos
+         0 MB  ~/Library/Application Scripts/com.microsoft.rdc.macos.qlx
+
+  [Orphaned Microsoft leftovers]
+         0 MB  ~/Library/Containers/com.microsoft.pasteboard-xpc
+         0 MB  ~/Library/Application Scripts/com.microsoft.pasteboard-xpc
+         0 MB  ~/Library/Preferences/com.microsoft.shared.plist
+
+  [Microsoft AutoUpdate (MAU) + its updater agent]
+        11 MB  /Library/Application Support/Microsoft/MAU2.0
+         0 MB  ~/Library/Caches/com.microsoft.autoupdate.fba
+         3 MB  ~/Library/HTTPStorages/com.microsoft.autoupdate.fba
+         0 MB  ~/Library/HTTPStorages/com.microsoft.autoupdate2
+         0 MB  ~/Library/Preferences/com.microsoft.autoupdate.fba.plist
+         0 MB  ~/Library/Preferences/com.microsoft.autoupdate2.plist
+         0 MB  /Library/Preferences/com.microsoft.autoupdate2.plist
+         0 MB  /Library/LaunchAgents/com.microsoft.update.agent.plist
+         0 MB  /Library/PrivilegedHelperTools/com.microsoft.autoupdate.helper
+
+  [Office group containers (documents, settings, Outlook mail store)]
+         0 MB  ~/Library/Group Containers/UBF8T346G9.com.microsoft.entrabroker
+         0 MB  ~/Library/Group Containers/UBF8T346G9.com.microsoft.oneauth
+         0 MB  ~/Library/Group Containers/UBF8T346G9.com.microsoft.rdc
+       213 MB  ~/Library/Group Containers/UBF8T346G9.com.microsoft.teams
+         0 MB  ~/Library/Group Containers/UBF8T346G9.ms
+         0 MB  ~/Library/Application Scripts/UBF8T346G9.com.microsoft.entrabroker
+         0 MB  ~/Library/Application Scripts/UBF8T346G9.com.microsoft.oneauth
+         0 MB  ~/Library/Application Scripts/UBF8T346G9.com.microsoft.rdc
+         0 MB  ~/Library/Application Scripts/UBF8T346G9.com.microsoft.teams
+         0 MB  ~/Library/Application Scripts/UBF8T346G9.ms
+
+  [Shared Microsoft support files (/Library and ~/Library)]
+         0 MB  ~/Library/Application Support/Microsoft
+        11 MB  /Library/Application Support/Microsoft
+
+  [Remaining Microsoft launch agents / daemons / privileged helpers]
+         0 MB  /Library/LaunchDaemons/com.microsoft.autoupdate.helper.plist
+
+  [Keychain]
+    Office identity / licence entries in the login keychain
+
+  42 paths, ~3.8 GB to reclaim
+  Your own documents outside these folders are never touched.
+  Method: move to ~/.Trash (recoverable until you empty it).
+
+[dry-run] Nothing was changed.

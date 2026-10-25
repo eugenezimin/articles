@@ -1,0 +1,8 @@
+$ pkgutil --pkgs | grep -i microsoft
+com.microsoft.package.Microsoft_AutoUpdate.app
+com.microsoft.MSTeamsAudioDevice
+com.microsoft.teams2
+$ pkgutil --files com.microsoft.MSTeamsAudioDevice | head -1
+MSTeamsAudioDevice.driver
+$ ls /Library/Audio/Plug-Ins/HAL | grep -i teams
+MSTeamsAudioDevice.driver

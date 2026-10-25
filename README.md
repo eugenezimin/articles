@@ -120,6 +120,11 @@ A walkthrough of a macOS terminal rebuilt around three small, swappable tools: G
 
 Published on [DEV.to](https://dev.to/eugene-zimin/a-clean-and-fast-macos-terminal-with-ghostty-starship-and-antidote-5ai) on October 24, 2026.
 
+#### Removing Microsoft's Bloatware
+An illustrated walkthrough of why dragging Microsoft apps to the Trash is not an uninstall: AutoUpdate leaves a launch agent that fires every two hours and a helper that runs as root, Teams keeps 2.3 GB in its container beyond the 1.1 GB app, and OneDrive turns out to be seven bundle IDs. It follows the `ms-uninstall.sh` script through finding apps by bundle identifier rather than name, mapping every place one app writes to, letting kept apps veto removal of the shared components they depend on (AutoUpdate, the `UBF8T346G9` group containers that hold Outlook's mail store, Office fonts), and the order in which a removal has to run. It closes with what the script leaves behind, including package receipts and a Teams audio driver, and points to the [development-utilities](https://github.com/eugenezimin/development-utilities/tree/main/ms-uninstall) repository.
+
+Not yet published.
+
 ---
 
 ### Infrastructure & Kubernetes

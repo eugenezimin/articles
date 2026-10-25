@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#59636e"/>
+    </marker>
+    <style>
+      .sans { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, 'SF Mono', monospace; }
+    </style>
+  </defs>
+  <rect width="1000" height="420" fill="#ffffff"/>
+
+  <text x="170" y="52" text-anchor="middle" class="sans" font-size="15" font-weight="600" fill="#59636e">WHAT FINDER SHOWS</text>
+  <text x="625" y="52" text-anchor="middle" class="sans" font-size="15" font-weight="600" fill="#59636e">WHAT MACOS KEYS EVERYTHING ON</text>
+  <text x="380" y="84" text-anchor="middle" class="mono" font-size="12" fill="#59636e">Info.plist → CFBundleIdentifier</text>
+
+  <!-- row 1 -->
+  <rect x="50" y="100" width="240" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="170" y="134" text-anchor="middle" class="sans" font-size="18" font-weight="600" fill="#1f2328">Windows App</text>
+  <line x1="296" y1="128" x2="464" y2="128" stroke="#59636e" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="470" y="100" width="310" height="56" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="625" y="133" text-anchor="middle" class="mono" font-size="15" fill="#1a4fb3">com.microsoft.rdc.macos</text>
+  <text x="800" y="124" class="sans" font-size="13" fill="#59636e">renamed from</text>
+  <text x="800" y="142" class="sans" font-size="13" fill="#59636e">“Microsoft Remote Desktop”</text>
+
+  <!-- row 2 -->
+  <rect x="50" y="176" width="240" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="170" y="210" text-anchor="middle" class="sans" font-size="18" font-weight="600" fill="#1f2328">Microsoft Teams</text>
+  <line x1="296" y1="204" x2="464" y2="204" stroke="#59636e" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="470" y="176" width="310" height="56" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="625" y="209" text-anchor="middle" class="mono" font-size="15" fill="#1a4fb3">com.microsoft.teams2</text>
+  <text x="800" y="200" class="sans" font-size="13" fill="#59636e">“classic” Teams was</text>
+  <text x="800" y="218" class="mono" font-size="12" fill="#59636e">com.microsoft.teams</text>
+
+  <!-- row 3 -->
+  <rect x="50" y="252" width="240" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="170" y="286" text-anchor="middle" class="sans" font-size="18" font-weight="600" fill="#1f2328">OneDrive</text>
+  <line x1="296" y1="280" x2="464" y2="280" stroke="#59636e" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="470" y="252" width="310" height="56" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="625" y="285" text-anchor="middle" class="mono" font-size="15" fill="#1a4fb3">com.microsoft.OneDrive</text>
+  <text x="800" y="276" class="sans" font-size="13" fill="#59636e">no “Microsoft”</text>
+  <text x="800" y="294" class="sans" font-size="13" fill="#59636e">anywhere in the name</text>
+
+  <!-- row 4 -->
+  <rect x="50" y="328" width="240" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="170" y="362" text-anchor="middle" class="sans" font-size="18" font-weight="600" fill="#1f2328">Microsoft Word</text>
+  <line x1="296" y1="356" x2="464" y2="356" stroke="#59636e" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="470" y="328" width="310" height="56" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="625" y="361" text-anchor="middle" class="mono" font-size="15" fill="#1a4fb3">com.microsoft.Word</text>
+  <text x="800" y="352" class="sans" font-size="13" fill="#59636e">the easy case,</text>
+  <text x="800" y="370" class="sans" font-size="13" fill="#59636e">and the rare one</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, 'SF Mono', monospace; }
+    </style>
+  </defs>
+  <rect width="1100" height="560" fill="#ffffff"/>
+
+  <text x="550" y="36" text-anchor="middle" class="sans" font-size="17" font-weight="600" fill="#1f2328">Remove all of Office, keep Teams</text>
+
+  <text x="160" y="76" text-anchor="middle" class="sans" font-size="13" font-weight="600" fill="#59636e">YOUR CHOICES</text>
+  <text x="840" y="76" text-anchor="middle" class="sans" font-size="13" font-weight="600" fill="#59636e">SHARED COMPONENTS</text>
+
+  <!-- kept app -->
+  <rect x="40" y="92" width="240" height="56" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+  <text x="60" y="126" class="sans" font-size="17" font-weight="600" fill="#1f2328">Microsoft Teams</text>
+  <text x="262" y="125" text-anchor="end" class="sans" font-size="12" font-weight="700" fill="#1a7f37">KEEP</text>
+
+  <!-- removed apps -->
+  <rect x="40" y="186" width="240" height="250" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-dasharray="5 4"/>
+  <text x="262" y="210" text-anchor="end" class="sans" font-size="12" font-weight="700" fill="#8c959f">REMOVE</text>
+  <g class="sans" font-size="16" fill="#8c959f" text-decoration="line-through">
+    <text x="60" y="238">Microsoft Word</text>
+    <text x="60" y="280">Microsoft Excel</text>
+    <text x="60" y="322">Microsoft PowerPoint</text>
+    <text x="60" y="364">Microsoft Outlook</text>
+    <text x="60" y="406">Microsoft OneNote</text>
+  </g>
+
+  <!-- edges from the kept app: these veto -->
+  <g stroke="#1a7f37" stroke-width="2.5" fill="none">
+    <path d="M280 120 C450 120 450 122 600 122"/>
+    <path d="M280 120 C450 120 450 222 600 222"/>
+  </g>
+  <!-- edges from removed apps: ignored -->
+  <g stroke="#afb8c1" stroke-width="1.5" fill="none" stroke-dasharray="6 5">
+    <path d="M280 311 C440 311 440 132 600 132"/>
+    <path d="M280 311 C440 311 440 232 600 232"/>
+    <path d="M280 311 C440 311 440 322 600 322"/>
+    <path d="M280 311 C440 311 440 422 600 422"/>
+  </g>
+
+  <!-- shared components -->
+  <rect x="600" y="92" width="470" height="72" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="1.5"/>
+  <text x="620" y="120" class="sans" font-size="16" font-weight="600" fill="#1f2328">Microsoft AutoUpdate</text>
+  <text x="620" y="146" class="sans" font-size="13.5" font-weight="700" fill="#9a6700">KEPT — still needed by Microsoft Teams</text>
+
+  <rect x="600" y="192" width="470" height="72" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="1.5"/>
+  <text x="620" y="220" class="sans" font-size="16" font-weight="600" fill="#1f2328">Office group containers <tspan class="mono" font-size="13" fill="#59636e">UBF8T346G9.*</tspan></text>
+  <text x="620" y="246" class="sans" font-size="13.5" font-weight="700" fill="#9a6700">KEPT — still needed by Microsoft Teams</text>
+
+  <rect x="600" y="292" width="470" height="72" rx="10" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+  <text x="620" y="320" class="sans" font-size="16" font-weight="600" fill="#1f2328">Office helper data (sign-in, error reporting)</text>
+  <text x="620" y="346" class="sans" font-size="13.5" fill="#1a4fb3">offered — nothing you kept depends on this</text>
+
+  <rect x="600" y="392" width="470" height="72" rx="10" fill="#e8f0fe" stroke="#2f6fdf" stroke-width="1.5"/>
+  <text x="620" y="420" class="sans" font-size="16" font-weight="600" fill="#1f2328">Microsoft fonts <tspan class="mono" font-size="13" fill="#59636e">/Library/Fonts/Microsoft</tspan></text>
+  <text x="620" y="446" class="sans" font-size="13.5" fill="#1a4fb3">offered — nothing you kept depends on this</text>
+
+  <!-- legend -->
+  <line x1="200" y1="512" x2="250" y2="512" stroke="#1a7f37" stroke-width="2.5"/>
+  <text x="262" y="517" class="sans" font-size="13.5" fill="#59636e">a kept app depends on it, so it holds a veto</text>
+  <line x1="600" y1="512" x2="650" y2="512" stroke="#afb8c1" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="662" y="517" class="sans" font-size="13.5" fill="#59636e">the app is being removed, so its need no longer counts</text>
+</svg>

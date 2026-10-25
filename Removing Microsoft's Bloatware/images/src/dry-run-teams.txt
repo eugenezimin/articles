@@ -1,0 +1,60 @@
+$ ./ms-uninstall.sh --dry-run --select 1
+
+Scanning for Microsoft software ...
+
+------------------------------------------------------------
+Microsoft products found
+------------------------------------------------------------
+   1) Microsoft Teams                           3.4 GB  (12 items)
+      com.microsoft.teams2
+   2) Windows App                               219 MB  (5 items)
+      com.microsoft.rdc.macos
+
+   3) Orphaned Microsoft leftovers                0 MB  (3 items)
+      data with no matching installed app:
+        com.microsoft.pasteboard-xpc
+        com.microsoft.shared.plist
+
+------------------------------------------------------------
+Select what to REMOVE. Everything you do not select is kept.
+Enter numbers ("1 3 5" or "1,3,5"), "all", or "none".
+------------------------------------------------------------
+Selection (from --select): 1
+
+------------------------------------------------------------
+Shared Microsoft components
+------------------------------------------------------------
+  --  Microsoft AutoUpdate (MAU) + its updater agent           15 MB
+      KEPT — still needed by: Windows App / Remote Desktop
+  --  Office group containers (documents, settings, Outlook mail store)    214 MB
+      KEPT — still needed by: Windows App / Remote Desktop
+  --  Shared Microsoft support files (/Library and ~/Library)     11 MB
+      KEPT — still needed by: Windows App / Remote Desktop
+  --  Remaining Microsoft launch agents / daemons / privileged helpers      0 MB
+      KEPT — still needed by: Windows App / Remote Desktop
+
+------------------------------------------------------------
+REMOVAL PLAN
+------------------------------------------------------------
+
+  [Microsoft Teams]
+       1.1 GB  /Applications/Microsoft Teams.app
+       2.3 GB  ~/Library/Containers/com.microsoft.teams2
+         7 MB  ~/Library/Containers/com.microsoft.teams2.agent
+         0 MB  ~/Library/Containers/com.microsoft.teams2.notificationcenter
+         0 MB  ~/Library/Containers/com.microsoft.teams2.respawn
+         0 MB  ~/Library/Containers/com.microsoft.teams2.widgetextension
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.agent
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.notificationcenter
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.respawn
+         0 MB  ~/Library/Application Scripts/com.microsoft.teams2.widgetextension
+         0 MB  ~/Library/Preferences/com.microsoft.teams2.helper.plist
+
+  12 paths, ~3.4 GB to reclaim
+
+  KEEPING: Windows App / Remote Desktop
+  Your own documents outside these folders are never touched.
+  Method: move to ~/.Trash (recoverable until you empty it).
+
+[dry-run] Nothing was changed.

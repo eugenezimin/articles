@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450">
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: Menlo, 'SF Mono', monospace; font-size: 14px; fill: #1a4fb3; }
+    </style>
+  </defs>
+  <rect width="1000" height="450" fill="#ffffff"/>
+
+  <text x="140" y="36" text-anchor="middle" class="sans" font-size="14" font-weight="600" fill="#59636e">WHAT YOU SEE</text>
+  <text x="670" y="36" text-anchor="middle" class="sans" font-size="14" font-weight="600" fill="#59636e">WHAT sibling_ids() EXPANDS IT TO</text>
+
+  <!-- visible app -->
+  <rect x="40" y="200" width="200" height="64" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="140" y="239" text-anchor="middle" class="sans" font-size="19" font-weight="600" fill="#1f2328">OneDrive.app</text>
+
+  <g stroke="#8c959f" stroke-width="1.5" fill="none">
+    <path d="M240 232 C310 232 310 106 380 106"/>
+    <path d="M240 232 L380 232"/>
+    <path d="M240 232 C310 232 310 362 380 362"/>
+  </g>
+
+  <!-- the app -->
+  <rect x="380" y="60" width="580" height="92" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="400" y="86" class="sans" font-size="13" font-weight="700" fill="#59636e">THE APP</text>
+  <text x="400" y="112" class="mono">com.microsoft.OneDrive</text>
+  <text x="400" y="136" class="mono">com.microsoft.OneDrive-mac</text>
+
+  <!-- updaters -->
+  <rect x="380" y="172" width="580" height="116" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="400" y="198" class="sans" font-size="13" font-weight="700" fill="#59636e">UPDATERS</text>
+  <text x="400" y="224" class="mono">com.microsoft.OneDriveUpdater</text>
+  <text x="400" y="248" class="mono">com.microsoft.OneDriveStandaloneUpdater</text>
+  <text x="400" y="272" class="mono">com.microsoft.OneDriveStandaloneUpdaterDaemon</text>
+
+  <!-- helpers -->
+  <rect x="380" y="308" width="580" height="92" rx="10" fill="#e8f0fe" stroke="#2f6fdf"/>
+  <text x="400" y="334" class="sans" font-size="13" font-weight="700" fill="#59636e">LAUNCHER AND SHAREPOINT</text>
+  <text x="400" y="360" class="mono">com.microsoft.OneDriveLauncher</text>
+  <text x="400" y="384" class="mono">com.microsoft.SharePoint-mac</text>
+
+  <text x="670" y="432" text-anchor="middle" class="sans" font-size="13" fill="#59636e">each ID is run through paths_for_id() on its own, so each brings its own preferences, caches and launch items</text>
+</svg>

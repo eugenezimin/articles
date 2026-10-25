@@ -1,0 +1,10 @@
+$ ls /Library/{LaunchAgents,LaunchDaemons,PrivilegedHelperTools} | grep -iE 'microsoft|:$'
+/Library/LaunchAgents:
+com.microsoft.update.agent.plist
+/Library/LaunchDaemons:
+com.microsoft.autoupdate.helper.plist
+/Library/PrivilegedHelperTools:
+com.microsoft.autoupdate.helper
+$ plutil -p /Library/LaunchAgents/com.microsoft.update.agent.plist | grep -E 'RunAt|Interval'
+  "RunAtLoad" => true
+  "StartInterval" => 7200

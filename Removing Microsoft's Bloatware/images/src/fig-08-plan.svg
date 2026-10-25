@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="849" height="918" viewBox="0 0 849 918">
+<defs>
+<filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+<feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#000" flood-opacity="0.45"/>
+</filter>
+<clipPath id="win"><rect x="34" y="28" width="780.8" height="848.5" rx="12"/></clipPath>
+</defs>
+<rect x="34" y="28" width="780.8" height="848.5" rx="12" fill="#132948" filter="url(#shadow)"/>
+<g clip-path="url(#win)">
+<rect x="34" y="28" width="780.8" height="29" fill="#0f2240"/>
+</g>
+<rect x="34.5" y="28.5" width="779.8" height="847.5" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.14"/>
+<circle cx="52" cy="42.5" r="6" fill="#ff5f57"/>
+<circle cx="72" cy="42.5" r="6" fill="#febc2e"/>
+<circle cx="92" cy="42.5" r="6" fill="#28c840"/>
+<text x="424.4" y="47.0" text-anchor="middle" fill="#9fb0c8" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="13">ms-uninstall.sh --dry-run --select all --shared all</text>
+<text x="50.0" y="82.5" xml:space="preserve" fill="#5af78e" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">$ </text>
+<text x="65.6" y="82.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">./ms-uninstall.sh --dry-run --select all --shared all</text>
+<text x="50.0" y="101.0" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">⋯</text>
+<text x="50.0" y="119.5" xml:space="preserve" fill="#f3f99d" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">NOTE: 1 file(s) are stored inside ~/Library/Containers/com.microsoft.rdc.macos/Data/Documents</text>
+<text x="50.0" y="138.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">      ~/Library/Containers/com.microsoft.rdc.macos/Data/Documents/HealthChecks/README.txt</text>
+<text x="50.0" y="156.5" xml:space="preserve" fill="#f3f99d" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">      Copy them out first if they matter.</text>
+<text x="50.0" y="193.5" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">------------------------------------------------------------</text>
+<text x="50.0" y="212.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">REMOVAL PLAN</text>
+<text x="50.0" y="230.5" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">------------------------------------------------------------</text>
+<text x="50.0" y="267.5" xml:space="preserve" fill="#57c7ff" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">  [Microsoft Teams]</text>
+<text x="50.0" y="286.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">       </text>
+<text x="104.6" y="286.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">1.1 GB</text>
+<text x="151.4" y="286.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="286.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Applications/Microsoft Teams.app</text>
+<text x="50.0" y="304.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">       </text>
+<text x="104.6" y="304.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">2.3 GB</text>
+<text x="151.4" y="304.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="304.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.teams2</text>
+<text x="50.0" y="323.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="323.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">7 MB</text>
+<text x="151.4" y="323.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="323.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.teams2.agent</text>
+<text x="50.0" y="341.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="341.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="341.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="341.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.teams2.notificationcenter</text>
+<text x="50.0" y="360.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="360.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="360.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="360.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.teams2.respawn</text>
+<text x="50.0" y="378.5" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">⋯</text>
+<text x="50.0" y="397.0" xml:space="preserve" fill="#57c7ff" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">  [Windows App]</text>
+<text x="50.0" y="415.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">       </text>
+<text x="104.6" y="415.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">217 MB</text>
+<text x="151.4" y="415.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="415.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Applications/Windows App.app</text>
+<text x="50.0" y="434.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="434.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">1 MB</text>
+<text x="151.4" y="434.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="434.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.rdc.macos</text>
+<text x="50.0" y="452.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="452.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="452.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="452.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Containers/com.microsoft.rdc.macos.qlx</text>
+<text x="50.0" y="471.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="471.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="471.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="471.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Application Scripts/com.microsoft.rdc.macos</text>
+<text x="50.0" y="489.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="489.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="489.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="489.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Application Scripts/com.microsoft.rdc.macos.qlx</text>
+<text x="50.0" y="508.0" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">⋯</text>
+<text x="50.0" y="526.5" xml:space="preserve" fill="#57c7ff" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">  [Microsoft AutoUpdate (MAU) + its updater agent]</text>
+<text x="50.0" y="545.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">        </text>
+<text x="112.4" y="545.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">11 MB</text>
+<text x="151.4" y="545.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="545.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Library/Application Support/Microsoft/MAU2.0</text>
+<text x="50.0" y="563.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="563.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="563.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="563.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Caches/com.microsoft.autoupdate.fba</text>
+<text x="50.0" y="582.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="582.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">3 MB</text>
+<text x="151.4" y="582.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="582.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/HTTPStorages/com.microsoft.autoupdate.fba</text>
+<text x="50.0" y="600.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="600.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="600.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="600.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/HTTPStorages/com.microsoft.autoupdate2</text>
+<text x="50.0" y="619.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="619.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="619.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="619.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Preferences/com.microsoft.autoupdate.fba.plist</text>
+<text x="50.0" y="637.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="637.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="637.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="637.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">~/Library/Preferences/com.microsoft.autoupdate2.plist</text>
+<text x="50.0" y="656.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="656.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="656.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="656.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Library/Preferences/com.microsoft.autoupdate2.plist</text>
+<text x="50.0" y="674.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="674.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="674.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="674.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Library/LaunchAgents/com.microsoft.update.agent.plist</text>
+<text x="50.0" y="693.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">         </text>
+<text x="120.2" y="693.0" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">0 MB</text>
+<text x="151.4" y="693.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  </text>
+<text x="167.0" y="693.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">/Library/PrivilegedHelperTools/com.microsoft.autoupdate.helper</text>
+<text x="50.0" y="711.5" xml:space="preserve" fill="#8796ad" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">⋯</text>
+<text x="50.0" y="730.0" xml:space="preserve" fill="#57c7ff" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">  [Keychain]</text>
+<text x="50.0" y="748.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">    Office identity / licence entries in the login keychain</text>
+<text x="50.0" y="785.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  42 paths, ~3.8 GB to reclaim</text>
+<text x="50.0" y="804.0" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  Your own documents outside these folders are never touched.</text>
+<text x="50.0" y="822.5" xml:space="preserve" fill="#eff0eb" font-family="'Nordwand Mono', Menlo, monospace" font-size="13">  Method: move to ~/.Trash (recoverable until you empty it).</text>
+<text x="50.0" y="859.5" xml:space="preserve" fill="#9aedfe" font-family="'Nordwand Mono', Menlo, monospace" font-size="13" font-weight="bold">[dry-run] Nothing was changed.</text>
+</svg>
